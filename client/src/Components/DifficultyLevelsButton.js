@@ -1,4 +1,4 @@
-const difficultylevel = () => {
+const DifficultyLevelsButton = () => {
 
     return (
         <div> 
@@ -11,3 +11,5 @@ const difficultylevel = () => {
     )
 
 ;}
+
+export default DifficultyLevelsButton

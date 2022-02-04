@@ -1,11 +1,16 @@
-import ThemeMenu from "../Components/ThemeMenu";
+import DifficultylevelContainer from "./DifficultylevelContainer";
+import ThemeButtonContainer from "./ThemeButtonContainer";
+import React, { useState } from "react";
 
 const MainMenuContainer = () => {
-  return (
-  <div>
-    <h1>Mind Me</h1>
+  const [menuPicker, setMenuPicker] = useState(false);
 
-  </div>
-  )};
+  return (
+    <div>
+      <h1>Mind Me</h1>
+      {menuPicker ? <DifficultylevelContainer /> : <ThemeButtonContainer menuPicker ={menuPicker} setMenuPicker ={setMenuPicker}/>}
+    </div>
+  );
+};
 
 export default MainMenuContainer;
