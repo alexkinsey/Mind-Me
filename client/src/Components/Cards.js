@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-const cards = () => {
-    return(
-        <div>
-            <h1>Cards</h1>
-
-        </div>
-    )
-};
-=======
 import React, { useState } from 'react';
 import ReactCardFlip from 'react-card-flip';
 
@@ -34,4 +24,3 @@ const Cards = () => {
 };
 
 export default Cards;
->>>>>>> 0fd8c784dcc9c78b6f220a9190fd20e050cbe02c
