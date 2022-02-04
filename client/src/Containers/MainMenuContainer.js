@@ -1,9 +1,11 @@
+import ThemeMenu from "../Components/ThemeMenu";
+
 const MainMenuContainer = () => {
-  return 
+  return (
   <div>
     <h1>Mind Me</h1>
 
-  </div>;
-};
+  </div>
+  )};
 
 export default MainMenuContainer;
