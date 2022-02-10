@@ -12,24 +12,20 @@ const Grid = styled.div`
   margin: auto;
 `;
 
-const CardContainer = () => {
-  const cardsNode = new Array(
-    <Card />,
-    <Card />,
-    <Card />,
-    <Card />,
-    <Card />,
-    <Card />,
-    <Card />,
-    <Card />,
-    <Card />,
-    <Card />
-  );
+const CardContainer = ({cardsToDisplay}) => {
+  
+  const cardsNode = cardsToDisplay.map((card) => {
+    return <Card/>
+  })
+
+  
   return (
     <Grid>
+      
       {cardsNode}
     </Grid>
   );
-};
+}
+
 
 export default CardContainer;

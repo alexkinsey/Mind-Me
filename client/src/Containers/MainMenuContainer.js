@@ -3,8 +3,8 @@ import ThemeButtonContainer from './ThemeButtonContainer';
 import GameContainer from './GameContainer';
 import React, { useState } from 'react';
 
-const MainMenuContainer = ({ handleThemeButton, handleDifficultyButton, menuChoice }) => {
-  const [menuPicker, setMenuPicker] = useState(false);
+const MainMenuContainer = ({ handleThemeButton, handleDifficultyButton, menuChoice, themeData, difficultyLevel }) => {
+  
 
   return (
     <div>
@@ -12,13 +12,13 @@ const MainMenuContainer = ({ handleThemeButton, handleDifficultyButton, menuChoi
       {menuChoice === 'Theme' ? (
         <ThemeButtonContainer
           handleThemeButton={handleThemeButton}
-          menuPicker={menuPicker}
-          setMenuPicker={setMenuPicker}
+          menuChoice={menuChoice}
+          
         />
       ) : menuChoice === 'Difficulty' ? (
         <DifficultyLevelContainer handleDifficultyButton={handleDifficultyButton} />
       ) : (
-        <GameContainer />
+        <GameContainer  themeData={themeData} difficultyLevel={difficultyLevel} />
       )}
     </div>
   );
