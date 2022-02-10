@@ -1,9 +1,9 @@
-const ThemeButton = ({menuPicker, setMenuPicker}) => {
+const ThemeButton = ({menuPicker, setMenuPicker, theme, handleThemeButton} ) => {
 
     return (
         <div>
 
-        <button onClick={() => setMenuPicker(!menuPicker)}>Theme 1</button>
+        <button onClick={() => handleThemeButton (theme)}>{theme}</button>
 
         </div>
 

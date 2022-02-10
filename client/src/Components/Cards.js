@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ReactCardFlip from 'react-card-flip';
 
-const baseAnimalURL = 'http://localhost:5000/api/mind_me/animals';
+
 
 const Cards = () => {
   const[isFlipped, setIsFlipped] = useState(false);
@@ -26,11 +26,7 @@ const Cards = () => {
 
 
 
-  getCards() {
-    return fetch (baseURL)
-    .then (res => res.json());
 
-},
 };
 
 export default Cards
