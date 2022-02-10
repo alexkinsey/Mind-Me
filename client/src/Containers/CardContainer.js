@@ -13,24 +13,22 @@ const Grid = styled.div`
 `;
 
 const CardContainer = () => {
+  const cardsNode = new Array(
+    <Card />,
+    <Card />,
+    <Card />,
+    <Card />,
+    <Card />,
+    <Card />,
+    <Card />,
+    <Card />,
+    <Card />,
+    <Card />
+  );
   return (
     <Grid>
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-    </ Grid>
+      {cardsNode}
+    </Grid>
   );
 };
 
