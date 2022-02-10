@@ -1,11 +1,9 @@
 const hint = () => {
-    return (
-        <div>
-    
-                <button>Hints</button>
-            
-        </div>
-    )
+  return (
+    <div>
+      <button>Hints</button>
+    </div>
+  );
 };
 
 export default hint;

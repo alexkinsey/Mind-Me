@@ -1,13 +1,11 @@
-import DifficultyLevelsButton from "../Components/DifficultyLevelsButton"
+import DifficultyLevelsButton from '../Components/DifficultyLevelsButton';
 
 const DifficultylevelContainer = () => {
+  return (
+    <>
+      <DifficultyLevelsButton />
+    </>
+  );
+};
 
-
-    return (
-        <>
-        <DifficultyLevelsButton/>
-        </>
-    )
-}
-
-export default DifficultylevelContainer
+export default DifficultylevelContainer;
