@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
 import React from 'react';
-import MainMenuContainer from './Containers/MainMenuContainer';
+
 import GameContainer from './Containers/GameContainer';
+import ThemeButtonContainer from './Containers/ThemeButtonContainer';
+import DifficultyLevelContainer from './Containers/DifficultylevelContainer';
 
 const MindMe = () => {
   const [themeData, setThemeData] = useState([]);
@@ -13,17 +15,26 @@ const MindMe = () => {
       .then((response) => response.json())
       .then((data) => setThemeData(data));
 
-    setMenuChoice('Difficulty')
+    setMenuChoice('Difficulty');
   };
 
   const handleDifficultyButton = (difficulty) => {
-    setMenuChoice('Game')
-    setDifficultyLevel(difficulty)
-  }
+    setMenuChoice('Game');
+    setDifficultyLevel(difficulty);
+  };
 
   return (
     <>
-      <MainMenuContainer handleThemeButton={handleThemeButton} handleDifficultyButton={handleDifficultyButton} menuChoice={menuChoice} themeData={themeData} difficulyLevel={difficultyLevel} />
+      <div>
+        <h1>Mind Me</h1>
+        {menuChoice === 'Theme' ? (
+          <ThemeButtonContainer handleThemeButton={handleThemeButton} />
+        ) : menuChoice === 'Difficulty' ? (
+          <DifficultyLevelContainer handleDifficultyButton={handleDifficultyButton} />
+        ) : menuChoice === 'Game' ? (
+          <GameContainer themeData={themeData} difficultyLevel={difficultyLevel} />
+        ) : null}
+      </div>
     </>
   );
 };
