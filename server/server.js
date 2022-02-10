@@ -27,8 +27,6 @@ MongoClient.connect('mongodb://localhost:27017', { useUnifiedTopology: true })
     const celebsCollection = db.collection('celebs');
     const celebsRouter = createRouter(celebsCollection);
     app.use('/mind-me/celebs', celebsRouter);
-
-
   })
   .catch(console.err);
 

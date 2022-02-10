@@ -1,4 +1,4 @@
-use match_me;
+use mind_me;
 db.dropDatabase();
 
 db.animals.insertMany([
