@@ -3,12 +3,12 @@ import React from 'react';
 
 import GameContainer from './Containers/GameContainer';
 import ThemeButtonContainer from './Containers/ThemeButtonContainer';
-import DifficultyLevelContainer from './Containers/DifficultylevelContainer';
+import DifficultyLevelContainer from './Containers/DifficultyLevelContainer';
 
 const MindMe = () => {
   const [themeData, setThemeData] = useState([]);
   const [menuChoice, setMenuChoice] = useState('Theme');
-  const [difficultyLevel, setDifficultyLevel] = useState('');
+  const [cardsToDisplay, setCardsToDisplay ] = useState([]);
 
   const handleThemeButton = (collection) => {
     fetch(`https://mind-me-9b3f9-default-rtdb.firebaseio.com/${collection.toLowerCase()}.json`)
@@ -20,8 +20,22 @@ const MindMe = () => {
 
   const handleDifficultyButton = (difficulty) => {
     setMenuChoice('Game');
-    setDifficultyLevel(difficulty);
+       if (difficulty == 'Too hot to handle!') {
+       setCardsToDisplay(themeData);
+       } else if (difficulty == 'Hard') {
+       setCardsToDisplay(themeData);
+       } else if (difficulty == 'Medium') {
+       setCardsToDisplay(themeData);
+     } else {
+        setCardsToDisplay(themeData);
+     }
+     
+      
+    
   };
+   
+  
+   
 
   return (
     <>
@@ -32,11 +46,13 @@ const MindMe = () => {
         ) : menuChoice === 'Difficulty' ? (
           <DifficultyLevelContainer handleDifficultyButton={handleDifficultyButton} />
         ) : menuChoice === 'Game' ? (
-          <GameContainer themeData={themeData} difficultyLevel={difficultyLevel} />
+          <GameContainer themeData={themeData}  cardsToDisplay={cardsToDisplay} />
         ) : null}
       </div>
     </>
   );
+      
 };
+
 
 export default MindMe;
