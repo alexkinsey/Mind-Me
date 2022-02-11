@@ -24,10 +24,13 @@ const MindMe = () => {
        setCardsToDisplay(themeData);
        } else if (difficulty == 'Hard') {
        setCardsToDisplay(themeData);
+       themeData.splice(2, 3);
        } else if (difficulty == 'Medium') {
        setCardsToDisplay(themeData);
+       themeData.splice(2, 6);
      } else {
         setCardsToDisplay(themeData);
+        themeData.splice(2, 8);
      }
      
       

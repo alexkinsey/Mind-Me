@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import CardContainer from './CardContainer';
 
 const GameContainer = ({ themeData, cardsToDisplay }) => {
-  //const [cardsToDisplay, setCardsToDisplay] = useState([]);
+  
 
   if (themeData.length < 1) {
     return <p>Loading...</p>;

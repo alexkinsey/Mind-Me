@@ -15,13 +15,15 @@ const Card = () => {
       <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
         <CardBackground>
           <img
-            src="https://upload.wikimedia.org/wikipedia/commons/3/36/Playing_card_club_A.svg"
+          
+           src="https://upload.wikimedia.org/wikipedia/commons/3/36/Playing_card_club_A.svg"
             onClick={() => setIsFlipped(!isFlipped)}
           />
         </CardBackground>
 
         <CardBackground>
           <img
+          
             src="https://upload.wikimedia.org/wikipedia/commons/5/57/Playing_card_heart_A.svg"
             onClick={() => setIsFlipped(!isFlipped)}
           />
