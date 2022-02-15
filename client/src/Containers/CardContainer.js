@@ -14,7 +14,7 @@ const Grid = styled.div`
 
 const CardContainer = ({cardsToDisplay}) => {
   const cardsNode = cardsToDisplay.map((card) => {
-    return <Card/>
+    return <Card key={card._id} cardImg={card.link} cardLabel={card.label}/>
   })
   
   return (
