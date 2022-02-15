@@ -8,11 +8,11 @@ db.animals.insertMany([
   },
   {
     label: "Mouse",
-    link: "https://drive.google.com/uc?id=1rD90U98wwZm0LDfop7p_dZn7RQGyMPFW",
+    link: "https://drive.google.com/uc?id=11DlORlmx_eHFKgFslqBXjx0AbYsCXh6N",
   },
   {
     label: "Elephant",
-    link: "https://drive.google.com/uc?id=1rD90U98wwZm0LDfop7p_dZn7RQGyMPFW",
+    link: "https://drive.google.com/uc?id=1dH95W2fgJWSZDQ8G8SOTJkGzurFVWMXH",
   },
   {
     label: "Dolphin",
@@ -182,46 +182,47 @@ db.locations.insertMany([
   },
   {
     label: "London Bridge",
-    link: "https://drive.google.com/uc?id=14MigMlsIyVoY1i0pqF6n28SsqtdOQvSX"
+    link: "https://drive.google.com/uc?id=14MigMlsIyVoY1i0pqF6n28SsqtdOQvSX",
   },
   {
     label: "Leaning tower of Pisa",
-    link: "https://drive.google.com/uc?id=1xkdpQ3C8Ef_b9b0lAHFOKBr_4chS4DWA"
+    link: "https://drive.google.com/uc?id=1xkdpQ3C8Ef_b9b0lAHFOKBr_4chS4DWA",
   },
   {
     label: "Kyoto",
-    link: "https://drive.google.com/uc?id=1lracBT1DqIH-9U-dEbx0iadKcbPTVwbX"
+    link: "https://drive.google.com/uc?id=1lracBT1DqIH-9U-dEbx0iadKcbPTVwbX",
   },
   {
     label: "Blue Lagoon",
-    link: "https://drive.google.com/uc?id=1As6d0qNDJ-qc5c4BB4OXWnywjW3E2ctt"
+    link: "https://drive.google.com/uc?id=1As6d0qNDJ-qc5c4BB4OXWnywjW3E2ctt",
   },
   {
     label: "Burj Khalifa",
-    link: "https://drive.google.com/uc?id=1lT8t7_qVsXevvT7-EU3S7CRhukdHnUG7"
+    link: "https://drive.google.com/uc?id=1lT8t7_qVsXevvT7-EU3S7CRhukdHnUG7",
   },
   {
     label: "Eiffel Tower",
-    link: "https://drive.google.com/uc?id=1R8USp-nsLZ541uwx23UO0SP8YWzxr-35"
+    link: "https://drive.google.com/uc?id=1R8USp-nsLZ541uwx23UO0SP8YWzxr-35",
   },
   {
     label: "Bora Bora",
-    link: "https://drive.google.com/uc?id=1PxpauQ9JRrBD5qn0NXFMyjAHf6_YgEnM"
+    link: "https://drive.google.com/uc?id=1PxpauQ9JRrBD5qn0NXFMyjAHf6_YgEnM",
   },
   {
     label: "Grand Canal",
-    link: "https://drive.google.com/uc?id=13GNPZlMwLcUjENqbNHDev8Wl6U5dA12U"
+    link: "https://drive.google.com/uc?id=13GNPZlMwLcUjENqbNHDev8Wl6U5dA12U",
   },
   {
     label: "Death Valley",
-    link: "https://drive.google.com/uc?id=1jf2yedqtcAUpwcUfLyV_t-1DSxO9DgBN"
+    link: "https://drive.google.com/uc?id=1jf2yedqtcAUpwcUfLyV_t-1DSxO9DgBN",
   },
   {
     label: "Grand Canyon",
-    link: "https://drive.google.com/uc?id=1QOU2T1QvR00g-lMs6VwAKwYa-CggjEwX"
+    link: "https://drive.google.com/uc?id=1QOU2T1QvR00g-lMs6VwAKwYa-CggjEwX",
+  },
   {
     label: "Christ the Redeemer",
-    link: "https://drive.google.com/uc?id=1DudBNnnWSU2NIPrI9D8LRGFHyZpqWD3h"
+    link: "https://drive.google.com/uc?id=1DudBNnnWSU2NIPrI9D8LRGFHyZpqWD3h",
   }
 ])
 
