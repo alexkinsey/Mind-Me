@@ -13,15 +13,12 @@ const Grid = styled.div`
 `;
 
 const CardContainer = ({cardsToDisplay}) => {
-  
   const cardsNode = cardsToDisplay.map((card) => {
     return <Card/>
   })
-
   
   return (
     <Grid>
-      
       {cardsNode}
     </Grid>
   );
