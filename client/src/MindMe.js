@@ -11,7 +11,7 @@ const MindMe = () => {
   const [cardsToDisplay, setCardsToDisplay] = useState([]);
 
   const handleThemeButton = (collection) => {
-    fetch(`https://mind-me-9b3f9-default-rtdb.firebaseio.com/${collection.toLowerCase()}.json`)
+    fetch(`https://mind-me-cc-default-rtdb.europe-west1.firebasedatabase.app/${collection.toLowerCase()}.json`)
       .then((response) => response.json())
       .then((data) => setThemeData(data));
 
@@ -20,12 +20,12 @@ const MindMe = () => {
 
   const handleDifficultyButton = (difficulty) => {
     setMenuChoice('Game');
-    if (difficulty == 'Too hot to handle!') {
+    if (difficulty === 'Too hot to handle!') {
       setCardsToDisplay(themeData);
-    } else if (difficulty == 'Hard') {
+    } else if (difficulty === 'Hard') {
       setCardsToDisplay(themeData);
       themeData.splice(2, 3);
-    } else if (difficulty == 'Medium') {
+    } else if (difficulty === 'Medium') {
       setCardsToDisplay(themeData);
       themeData.splice(2, 6);
     } else {
