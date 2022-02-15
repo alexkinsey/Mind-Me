@@ -26,11 +26,8 @@ const Card = ({ cardImg, cardLabel }) => {
         </CardBackground>
 
         <CardBackground>
-          <img src="https://drive.google.com/uc?id=13LIr3pOtNvoJ4pUggplDrv3FcUzRf9SF" alt={cardLabel} onClick={() => setIsFlipped(!isFlipped)} />
-        </CardBackground>
-        {/* <CardBackground>
           <img src={cardImg} alt={cardLabel} onClick={() => setIsFlipped(!isFlipped)} />
-        </CardBackground> */}
+        </CardBackground>
       </ReactCardFlip>
     </div>
   );
