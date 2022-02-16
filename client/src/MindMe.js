@@ -6,6 +6,7 @@ import ThemeButtonContainer from './Containers/ThemeButtonContainer';
 import DifficultyLevelContainer from './Containers/DifficultyLevelContainer';
 
 const MindMe = () => {
+  const [themeName, setThemeName] = useState('');
   const [themeData, setThemeData] = useState([]);
   const [menuChoice, setMenuChoice] = useState('Theme');
   const [cardsToDisplay, setCardsToDisplay] = useState([]);
@@ -15,14 +16,14 @@ const MindMe = () => {
       .then((response) => response.json())
       .then((data) => setThemeData(data));
 
+    setThemeName(collection);
     setMenuChoice('Difficulty');
   };
 
   const handleDifficultyButton = (difficulty) => {
-    var shuffledCards = arrayShuffle(themeData);
+    let shuffledCards = arrayShuffle(themeData);
 
-    if (difficulty === 'Too hot to handle!') {
-    } else if (difficulty === 'Hard') {
+    if (difficulty === 'Hard') {
       shuffledCards = shuffledCards.slice(0, 13);
     } else if (difficulty === 'Medium') {
       shuffledCards = shuffledCards.slice(0, 9);
@@ -45,7 +46,7 @@ const MindMe = () => {
         ) : menuChoice === 'Difficulty' ? (
           <DifficultyLevelContainer handleDifficultyButton={handleDifficultyButton} />
         ) : menuChoice === 'Game' ? (
-          <GameContainer themeData={themeData} cardsToDisplay={cardsToDisplay} />
+          <GameContainer cardsToDisplay={cardsToDisplay} themeName={themeName} />
         ) : null}
       </div>
     </>
