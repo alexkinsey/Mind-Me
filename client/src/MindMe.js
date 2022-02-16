@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import React from 'react';
+import { useState } from 'react';
+import arrayShuffle from 'array-shuffle';
 
 import GameContainer from './Containers/GameContainer';
 import ThemeButtonContainer from './Containers/ThemeButtonContainer';
@@ -19,19 +19,21 @@ const MindMe = () => {
   };
 
   const handleDifficultyButton = (difficulty) => {
-    setMenuChoice('Game');
+    var shuffledCards = arrayShuffle(themeData);
+
     if (difficulty === 'Too hot to handle!') {
-      setCardsToDisplay(themeData);
     } else if (difficulty === 'Hard') {
-      setCardsToDisplay(themeData);
-      themeData.splice(2, 3);
+      shuffledCards = shuffledCards.slice(0, 13);
     } else if (difficulty === 'Medium') {
-      setCardsToDisplay(themeData);
-      themeData.splice(2, 6);
-    } else {
-      setCardsToDisplay(themeData);
-      themeData.splice(2, 8);
+      shuffledCards = shuffledCards.slice(0, 9);
+    } else if (difficulty === 'Easy') {
+      shuffledCards = shuffledCards.slice(0, 5);
     }
+
+    shuffledCards = arrayShuffle(shuffledCards.concat(shuffledCards));
+    setCardsToDisplay(shuffledCards);
+
+    setMenuChoice('Game');
   };
 
   return (
