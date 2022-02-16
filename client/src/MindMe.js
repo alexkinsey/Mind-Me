@@ -1,9 +1,17 @@
 import { useState } from 'react';
 import arrayShuffle from 'array-shuffle';
+import styled from 'styled-components';
+
+import { GlobalStyle } from './GlobalStyle';
 
 import GameContainer from './Containers/GameContainer';
 import ThemeButtonContainer from './Containers/ThemeButtonContainer';
 import DifficultyLevelContainer from './Containers/DifficultyLevelContainer';
+
+const Wrapper = styled.div`
+  width: var(--maxWidth);
+  margin: 0 auto;
+`;
 
 const MindMe = () => {
   const [themeName, setThemeName] = useState('');
@@ -38,18 +46,17 @@ const MindMe = () => {
   };
 
   return (
-    <>
-      <div>
-        <h1>Mind Me</h1>
-        {menuChoice === 'Theme' ? (
-          <ThemeButtonContainer handleThemeButton={handleThemeButton} />
-        ) : menuChoice === 'Difficulty' ? (
-          <DifficultyLevelContainer handleDifficultyButton={handleDifficultyButton} />
-        ) : menuChoice === 'Game' ? (
-          <GameContainer cardsToDisplay={cardsToDisplay} themeName={themeName} />
-        ) : null}
-      </div>
-    </>
+    <Wrapper>
+      <h1>Mind Me</h1>
+      {menuChoice === 'Theme' ? (
+        <ThemeButtonContainer handleThemeButton={handleThemeButton} />
+      ) : menuChoice === 'Difficulty' ? (
+        <DifficultyLevelContainer handleDifficultyButton={handleDifficultyButton} />
+      ) : menuChoice === 'Game' ? (
+        <GameContainer cardsToDisplay={cardsToDisplay} themeName={themeName} />
+      ) : null}
+      <GlobalStyle />
+    </Wrapper>
   );
 };
 
