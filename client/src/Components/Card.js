@@ -11,7 +11,7 @@ const CardBackground = styled.div`
   border-radius: 0px;
 
   img {
-    width: 200px;
+    height: 200px;
   }
 `;
 
