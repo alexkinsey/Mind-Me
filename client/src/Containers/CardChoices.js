@@ -5,3 +5,4 @@ const handleChoice = (Cards) => {
 }
 
 //needs to be passed as an argument to the singlecard or cards
+//we need to also pass the handlochoice the handleclick for the csrd click function
