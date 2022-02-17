@@ -33,12 +33,19 @@ export const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     padding: 0;
+    display: flex;
+    justify-content: center;
+    background-color: var(--darkGrey);
+    
 
     h1 {
       font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
       font-size: 2rem;
       font-weight: 600;
-      color: var(--darkGrey);
+      color: white;
+      display: flex;
+      align-contents: center;
+      justify-content: center;
     }
     h2 { 
       font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
