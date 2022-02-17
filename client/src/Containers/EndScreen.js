@@ -12,11 +12,40 @@ const Wrapper = styled.div`
   backdrop-filter: blur(33px);
 `;
 
-const EndScreen = ({ turns }) => {
+const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: space-around;
+`
+
+const NewGameButton = styled.button`
+  background: var(--accent);
+  color: var(--white);
+  border: none;
+  border-radius: 15px;
+  width: 7em;
+  padding: 10px 0;
+  font-size: var(--fontMed);
+
+  :hover {
+    cursor: pointer;
+    background: var(--accentLight);
+  }
+
+  :click {
+    cursor: pointer;
+    background: var(--accentDark);
+  }
+`;
+
+const EndScreen = ({ turns, onRetryClick }) => {
   return (
     <Wrapper>
       <h1>Congratulations!</h1>
       <h3>You completed the puzzle in {turns} turns.</h3>
+      <ButtonContainer>
+        <NewGameButton onClick={() => window.location.reload(false)}>New game</NewGameButton>
+        <NewGameButton onClick={() => onRetryClick()}>Retry</NewGameButton>
+      </ButtonContainer>
     </Wrapper>
   );
 };

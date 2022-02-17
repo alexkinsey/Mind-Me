@@ -17,7 +17,7 @@ const Model = styled.div`
 
   div {
     margin: auto;
-    margin-top: 25vh;
+    transform: translate(0%, 75%);
   }
 `;
 
@@ -25,7 +25,7 @@ const GameContainer = ({ cardsToDisplay, themeName }) => {
   const [flippedCards, setFlippedCards] = useState(new Array(cardsToDisplay.length).fill(false));
   const [chosenCard1, setChosenCard1] = useState({ id: null, label: null });
   const [chosenCard2, setChosenCard2] = useState({ id: null, label: null });
-  const [gameComplete, setGameComplete] = useState(false);
+  const [gameComplete, setGameComplete] = useState(true);
   const [turns, setTurns] = useState(0);
 
   useEffect(() => {
@@ -71,15 +71,20 @@ const GameContainer = ({ cardsToDisplay, themeName }) => {
     }
   };
 
+  const onRetryClick = () => {
+    setFlippedCards(new Array(cardsToDisplay.length).fill(false));
+    setGameComplete(false);
+  };
+
   return (
     <div>
       <h2>{themeName}</h2>
       <p>Turns: {turns}</p>
       <CardContainer cardsToDisplay={cardsToDisplay} flippedCards={flippedCards} onCardClick={onCardClick} />
-      
+
       {gameComplete ? (
         <Model>
-          <EndScreen turns={turns} />
+          <EndScreen turns={turns} onRetryClick={onRetryClick} />
         </Model>
       ) : null}
     </div>
