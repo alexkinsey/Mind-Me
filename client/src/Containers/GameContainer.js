@@ -9,19 +9,19 @@ const GameContainer = ({ cardsToDisplay, themeName }) => {
 
   useEffect(() => {
     if (chosenCard1.id !== null && chosenCard2.id !== null) {
-      setTimeout(function () {
-        if (chosenCard1.label !== chosenCard2.label) {
-          flippedCards[chosenCard1.id] = false;
+      if (chosenCard1.label !== chosenCard2.label) {
+        setTimeout(function () {
           flippedCards[chosenCard2.id] = false;
+          flippedCards[chosenCard1.id] = false;
 
-          setChosenCard1({ id: null, label: null });
           setChosenCard2({ id: null, label: null });
+          setChosenCard1({ id: null, label: null });
 
           setFlippedCards(flippedCards);
-        }
-      }, 600);
-      setChosenCard1({ id: null, label: null });
+        }, 600);
+      }
       setChosenCard2({ id: null, label: null });
+      setChosenCard1({ id: null, label: null });
     }
   }, [chosenCard1, chosenCard2, flippedCards]);
 
@@ -30,13 +30,15 @@ const GameContainer = ({ cardsToDisplay, themeName }) => {
   }
 
   const onCardClick = (id, label) => {
-    if (chosenCard1.id === null) {
+    if (chosenCard1.id === null && chosenCard2.id === null) {
       setChosenCard1({ id: id, label: label });
-    } else {
+      flippedCards[id] = true;
+      setFlippedCards(flippedCards);
+    } else if (chosenCard2.id === null && chosenCard1.id !== null) {
       setChosenCard2({ id: id, label: label });
+      flippedCards[id] = true;
+      setFlippedCards(flippedCards);
     }
-    flippedCards[id] = true;
-    setFlippedCards(flippedCards);
   };
 
   return (
