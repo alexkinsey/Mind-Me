@@ -7,8 +7,8 @@ const Grid = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 1em;
+  justify-content: space-between;
 
-  /* width: 1200px; */
   margin: auto;
 `;
 

@@ -8,10 +8,16 @@ const CardBackground = styled.div`
   -webkit-box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.25);
   box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.25);
 
-  border-radius: 0px;
+  overflow: hidden;
+
+  border: var(--medGrey) 0.5px solid;
+  border-radius: 10px;
+  height: 200px;
+  width: 130px;
 
   img {
-    height: 200px;
+    width: 100%;
+    height: 100%;
   }
 `;
 

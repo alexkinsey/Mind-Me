@@ -7,7 +7,7 @@ const GameContainer = ({ cardsToDisplay, themeName }) => {
 
   return (
     <div>
-      <h1>{themeName}</h1>
+      <h2>{themeName}</h2>
       <CardContainer cardsToDisplay={cardsToDisplay} />
     </div>
   );
