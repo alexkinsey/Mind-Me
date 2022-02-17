@@ -13,8 +13,10 @@ const Grid = styled.div`
 `;
 
 const CardContainer = ({cardsToDisplay}) => {
+  var cardId = 0;
   const cardsNode = cardsToDisplay.map((card) => {
-    return <Card key={card._id} cardImg={card.link} cardLabel={card.label}/>
+    cardId = cardId + 1
+    return <Card key={cardId} cardImg={card.link} cardLabel={card.label}/>
   })
   
   return (

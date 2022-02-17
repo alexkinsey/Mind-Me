@@ -24,15 +24,20 @@ const CardBackground = styled.div`
 const Card = ({ cardImg, cardLabel }) => {
   const [isFlipped, setIsFlipped] = useState(false);
 
+  const onCardClick = () => { 
+    setIsFlipped(!isFlipped)
+  }
+
+
   return (
     <div>
       <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
         <CardBackground>
-          <img src={cardBack} alt={cardLabel} onClick={() => setIsFlipped(!isFlipped)} />
+          <img src={cardBack} alt={cardLabel} onClick={() => onCardClick()} />
         </CardBackground>
 
         <CardBackground>
-          <img src={cardImg} alt={cardLabel} onClick={() => setIsFlipped(!isFlipped)} />
+          <img src={cardImg} alt={cardLabel} onClick={() => onCardClick()} />
         </CardBackground>
       </ReactCardFlip>
     </div>
