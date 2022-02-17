@@ -1,13 +1,14 @@
-import DifficultyLevelsButton from "../Components/DifficultyLevelsButton"
+import DifficultyLevelsButton from '../Components/DifficultyLevelsButton';
 
-const DifficultylevelContainer = () => {
+const DifficultyLevelContainer = ({handleDifficultyButton}) => {
+  return (
+    <>
+      <DifficultyLevelsButton handleDifficultyButton={handleDifficultyButton} difficulty={'Easy'}/>
+      <DifficultyLevelsButton handleDifficultyButton={handleDifficultyButton} difficulty={'Medium'}/>
+      <DifficultyLevelsButton handleDifficultyButton={handleDifficultyButton} difficulty={'Hard'}/>
+      <DifficultyLevelsButton handleDifficultyButton={handleDifficultyButton} difficulty={'Too hot to handle!'}/>
+    </>
+  );
+};
 
-
-    return (
-        <>
-        <DifficultyLevelsButton/>
-        </>
-    )
-}
-
-export default DifficultylevelContainer
+export default DifficultyLevelContainer;

@@ -14,25 +14,33 @@ const handleThemeButton = (collection) => {
     if (difficulty === 'Too hard to handle'){
       shuffledCards = shuffledCards.slice(0, 37);
 
-    } else if (difficulty === 'Hard') {
-      shuffledCards = shuffledCards.slice(0, 25);
+  
+    if (difficulty === 'Hard') {
+      shuffledCards = shuffledCards.slice(0, 7);
     } else if (difficulty === 'Medium') {
-      shuffledCards = shuffledCards.slice(0, 17);
+      shuffledCards = shuffledCards.slice(0, 6);
     } else if (difficulty === 'Easy') {
-      shuffledCards = shuffledCards.slice(0, 5);
+      shuffledCards = shuffledCards.slice(0, 4);
     } 
-     
 
 }
 
 
   return (
-    <>
+    <Wrapper>
+      <h1>Mind Me</h1>
+      {menuChoice === 'Theme' ? (
+        <ThemeButtonContainer handleThemeButton={handleThemeButton} />
+      ) : menuChoice === 'Difficulty' ? (
+        <DifficultyLevelContainer handleDifficultyButton={handleDifficultyButton} />
+      ) : menuChoice === 'Game' ? (
+        <GameContainer cardsToDisplay={cardsToDisplay} themeName={themeName} />
+      ) : null}
+      <GlobalStyle />
+
       
-      <MainMenuContainer handleThemeButton = {handleThemeButton} /> 
-      <GameContainer />
-    </>
-  )
+    </Wrapper>
+  );
 };
 
 
