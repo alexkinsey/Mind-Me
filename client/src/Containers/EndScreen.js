@@ -10,6 +10,8 @@ const Wrapper = styled.div`
   background: rgba(0, 0, 0, 0.3);
 
   backdrop-filter: blur(33px);
+  -webkit-box-shadow: 0px 20px 20px 5px rgba(0,0,0,0.5);
+  box-shadow: 0px 20px 20px 5px rgba(0,0,0,0.5);
 `;
 
 const ButtonContainer = styled.div`
