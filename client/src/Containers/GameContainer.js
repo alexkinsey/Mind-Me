@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import {useWindowSize} from 'react-use';
+import { useWindowSize } from 'react-use';
 import Confetti from 'react-confetti';
 
+// Components
 import CardContainer from './CardContainer';
 import EndScreen from './EndScreen';
 import BackButton from '../Components/BackButton';
 
-// STYLES
+// Styles
 const Model = styled.div`
   z-index: auto;
   position: fixed;
@@ -25,11 +26,20 @@ const Model = styled.div`
 
 const GameContainer = ({ cardsToDisplay, themeName }) => {
   const { width, height } = useWindowSize();
+
   const [flippedCards, setFlippedCards] = useState(new Array(cardsToDisplay.length).fill(false));
   const [chosenCard1, setChosenCard1] = useState({ id: null, label: null });
   const [chosenCard2, setChosenCard2] = useState({ id: null, label: null });
+  
   const [gameComplete, setGameComplete] = useState(true);
   const [turns, setTurns] = useState(0);
+
+  useEffect(() => {
+    if (flippedCards.every((v) => v === true)) {
+      console.log('complete');
+      setGameComplete(true);
+    }
+  });
 
   useEffect(() => {
     if (chosenCard1.id !== null && chosenCard2.id !== null) {
@@ -50,17 +60,6 @@ const GameContainer = ({ cardsToDisplay, themeName }) => {
     }
   }, [chosenCard1, chosenCard2, flippedCards]);
 
-  useEffect(() => {
-    if (flippedCards.every((v) => v === true)) {
-      console.log('complete');
-      setGameComplete(true);
-    }
-  });
-
-  if (cardsToDisplay.length < 1) {
-    return <p>Loading...</p>;
-  }
-
   const onCardClick = (id, label) => {
     if (chosenCard1.id === null && chosenCard2.id === null && !flippedCards[chosenCard1.id]) {
       setChosenCard1({ id: id, label: label });
@@ -76,6 +75,7 @@ const GameContainer = ({ cardsToDisplay, themeName }) => {
 
   const onRetryClick = () => {
     setFlippedCards(new Array(cardsToDisplay.length).fill(false));
+    setTurns(0);
     setGameComplete(false);
   };
 
