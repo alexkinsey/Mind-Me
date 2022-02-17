@@ -4,10 +4,12 @@ import styled from 'styled-components';
 import Card from '../Components/Card';
 
 const Grid = styled.div`
-display: flex;  
-flex-wrap: wrap;  
-width: 400px;  
-height: 300px;
+   display: grid;
+   max-width: 1000px;
+   max-height: flex;
+   grid-template-columns: repeat(4, 1fr);
+   column-gap: 15px;
+   row-gap: 15px;
 `
 ;
 
