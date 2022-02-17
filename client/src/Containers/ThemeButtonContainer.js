@@ -1,18 +1,14 @@
-import ThemeButton from "../Components/ThemeButton";
+import ThemeButton from '../Components/ThemeButton';
 
+const ThemeButtonContainer = ({ handleThemeButton }) => {
+  return (
+    <>
+      <ThemeButton theme={'Animals'} handleThemeButton={handleThemeButton} />
+      <ThemeButton theme={'Celebs'} handleThemeButton={handleThemeButton} />
+      <ThemeButton theme={'Locations'} handleThemeButton={handleThemeButton} />
+      <ThemeButton theme={'Food'} handleThemeButton={handleThemeButton} />
+    </>
+  );
+};
 
-const ThemeButtonContainer = ({menuPicker, setMenuPicker, handleThemeButton}) => {
-
-
-    return (
-        <>
-        <ThemeButton menuPicker ={menuPicker} setMenuPicker ={setMenuPicker} theme ={'Animals'} handleThemeButton = {handleThemeButton}/>
-        <ThemeButton menuPicker ={menuPicker} setMenuPicker ={setMenuPicker} theme = {'Celebs'} handleThemeButton = {handleThemeButton}/>
-        <ThemeButton menuPicker ={menuPicker} setMenuPicker ={setMenuPicker} theme = {'Locations'} handleThemeButton = {handleThemeButton}/>
-        <ThemeButton menuPicker ={menuPicker} setMenuPicker ={setMenuPicker} theme = {'Food'} handleThemeButton = {handleThemeButton}/>
-        </>
-    )
-}
-
-
-export default ThemeButtonContainer
+export default ThemeButtonContainer;

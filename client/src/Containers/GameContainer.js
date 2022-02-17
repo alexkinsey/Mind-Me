@@ -1,42 +1,48 @@
-import React, { useState, useEffect } from "react";
+import { useState } from 'react';
+import CardContainer from './CardContainer';
 
+const GameContainer = ({ cardsToDisplay, themeName }) => {
+  const [flippedCards, setFlippedCards] = useState(new Array(cardsToDisplay.length).fill(false));
+  const [chosenCard, setChosenCard] = useState({ id: null, label: null });
+  const [chosenCard2, setChosenCard2] = useState({ id: null, label: null });
 
-const GameContainer = () => {
+  if (cardsToDisplay.length < 1) {
+    return <p>Loading...</p>;
+  }
 
-   // const [cards, setCards] = usestate();
-   // const [turns, setTurns] = usestate(0);
-    //const [choiceOne, setChoiceOne] = useState(null);
-    //const [choiceTwo, setChoiceTwo] = useState(null);
-    //const [disabled, setDisabled] = useState(false);
-    //const [loaded, setLoaded] = useState(false);
+  const onCardClick = (id, label) => {
+    if (chosenCard.id === null) {
+      setChosenCard({ id: id, label: label });
+      flippedCards[id] = true;
+      setFlippedCards(flippedCards);
+    } else {
+      flippedCards[id] = true;
+      setFlippedCards(flippedCards);
 
-    // when page first loads get the card data
-    //useEffect(() => {
-       // getData();
-   // }, []);
-   
-    //retrieving data from the API and converting it to JSON 
-    //using a try catch in giving an error message if the API fails to load 
-    // const getData = async () => {
+      
 
-       // try {
-           // let response = await fetch();
-           // let data = await response.json();
-           // await setCards(data);
-           // await setLoaded(true);
-       // }
-       // catch (error) {
-            //console.log('error');
-       // }
-        
-   // }
-    return (
-   <div>
-    <h1>Welcome to the Dementia test</h1>
+      if (chosenCard.label === label) {
+        flippedCards[id] = true;
+      } 
+
+      setTimeout(function () {
+        if (chosenCard.label !== label) {
+          flippedCards[id] = false;
+          flippedCards[chosenCard.id] = false;
+        }
+      }, 50);
+
+      setFlippedCards(flippedCards);
+      setChosenCard({ id: null, label: null });
+    }
+  };
+
+  return (
+    <div>
+      <h2>{themeName}</h2>
+      <CardContainer cardsToDisplay={cardsToDisplay} flippedCards={flippedCards} onCardClick={onCardClick} />
     </div>
-
-
-    )};
-
+  );
+};
 
 export default GameContainer;
