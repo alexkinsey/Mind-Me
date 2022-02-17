@@ -9,9 +9,12 @@ import ThemeButtonContainer from './Containers/ThemeButtonContainer';
 import DifficultyLevelContainer from './Containers/DifficultyLevelContainer';
 
 const Wrapper = styled.div`
-  width: var(--maxWidth);
-  margin: 0 auto;
-`;
+display: grid;
+grid-template-columns: 1fr;
+grid-template-row: 1fr 1fr;
+gap: 10px
+   `;
+const grid
 
 const MindMe = () => {
   const [themeName, setThemeName] = useState('');
@@ -32,11 +35,11 @@ const MindMe = () => {
     let shuffledCards = arrayShuffle(themeData);
 
     if (difficulty === 'Hard') {
-      shuffledCards = shuffledCards.slice(0, 13);
+      shuffledCards = shuffledCards.slice(0, 6);
     } else if (difficulty === 'Medium') {
-      shuffledCards = shuffledCards.slice(0, 9);
-    } else if (difficulty === 'Easy') {
       shuffledCards = shuffledCards.slice(0, 5);
+    } else if (difficulty === 'Easy') {
+      shuffledCards = shuffledCards.slice(0, 3);
     }
 
     shuffledCards = arrayShuffle(shuffledCards.concat(shuffledCards));
