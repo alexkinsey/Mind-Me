@@ -13,6 +13,12 @@ import { GlobalStyle } from './GlobalStyle';
 const Wrapper = styled.div`
   width: var(--maxWidth);
   margin: 0 auto;
+
+  padding-top: 2em;
+
+  h1 {
+    margin-bottom: 2em;
+  }
 `;
 
 const MindMe = () => {

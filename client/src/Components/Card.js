@@ -1,15 +1,7 @@
-import React, { useState } from 'react';
 import styled from 'styled-components';
 import ReactCardFlip from 'react-card-flip';
 
-import cardBackBlue from '../Images/CardBlue.jpg';
-import cardBackGreen from '../Images/CardGreen.jpg';
-import cardBackOrng from '../Images/CardOrng.jpg';
-import cardBackRed from '../Images/CardRed.jpg';
-
 const CardBackground = styled.div`
-  /* position: absolute; */
-
   -webkit-box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.25);
   box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.25);
 

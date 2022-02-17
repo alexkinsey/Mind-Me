@@ -5,7 +5,7 @@ import ThemeButton from '../Components/ThemeButton';
 
 const Wrapper = styled.div`
   display: flex;
-  gap: 1rem;
+  gap: 2em;
   flex-direction: column;
   align-items: center;
 `;
