@@ -45,7 +45,7 @@ const GameContainer = ({ cardsToDisplay, themeName }) => {
 
           setChosenCard2({ id: null, label: null });
           setChosenCard1({ id: null, label: null });
-        }, 600);
+        }, 680);
       }
     }
   }, [chosenCard1, chosenCard2, flippedCards]);
