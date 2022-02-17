@@ -22,22 +22,6 @@ const CardBackground = styled.div`
 `;
 
 const Card = ({ id, cardImg, cardLabel, isFlipped, onCardClick }) => {
-  // const onCardClick = () => {
-  //   if (chosenCard.id === null) {
-  //     setChosenCard({ id: id, label: cardLabel });
-  //     flippedCards[id] = !flippedCards[id];
-  //     setFlippedCards(flippedCards);
-  //   } else {
-  //     if (chosenCard.label === cardLabel) {
-  //       flippedCards[id] = !flippedCards[id];
-  //     } else {
-  //       flippedCards[chosenCard.id] = false;
-  //     }
-  //     setFlippedCards(flippedCards);
-  //     setChosenCard({ id: null, label: null });
-  //   }
-  // };
-
   return (
     <div>
       <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
