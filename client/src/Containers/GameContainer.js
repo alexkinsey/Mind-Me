@@ -17,7 +17,7 @@ const Model = styled.div`
 
   div {
     margin: auto;
-    transform: translate(0%, 75%);
+    transform: translate(0%,75%);
   }
 `;
 
@@ -72,19 +72,19 @@ const GameContainer = ({ cardsToDisplay, themeName }) => {
   };
 
   const onRetryClick = () => {
-    setFlippedCards(new Array(cardsToDisplay.length).fill(false));
-    setGameComplete(false);
-  };
+    setFlippedCards(new Array(cardsToDisplay.length).fill(false))
+    setGameComplete(false)
+  }
 
   return (
     <div>
       <h2>{themeName}</h2>
       <p>Turns: {turns}</p>
       <CardContainer cardsToDisplay={cardsToDisplay} flippedCards={flippedCards} onCardClick={onCardClick} />
-
+      
       {gameComplete ? (
         <Model>
-          <EndScreen turns={turns} onRetryClick={onRetryClick} />
+          <EndScreen turns={turns} onRetryClick={onRetryClick}/>
         </Model>
       ) : null}
     </div>
