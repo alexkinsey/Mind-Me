@@ -2,12 +2,13 @@ import { useState } from 'react';
 import arrayShuffle from 'array-shuffle';
 import styled from 'styled-components';
 
-import { GlobalStyle } from './GlobalStyle';
-
+// Components
 import GameContainer from './Containers/GameContainer';
 import ThemeButtonContainer from './Containers/ThemeButtonContainer';
 import DifficultyLevelContainer from './Containers/DifficultyLevelContainer';
 
+// Styles
+import { GlobalStyle } from './GlobalStyle';
 
 const Wrapper = styled.div`
   width: var(--maxWidth);
@@ -45,9 +46,7 @@ const MindMe = () => {
 
     setMenuChoice('Game');
   };
-  const handleBackButton = () => {
-    
-  }
+  const handleBackButton = () => {};
 
   return (
     <Wrapper>
@@ -65,4 +64,3 @@ const MindMe = () => {
 };
 
 export default MindMe;
-

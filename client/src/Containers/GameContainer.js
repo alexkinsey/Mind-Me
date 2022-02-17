@@ -8,6 +8,12 @@ import CardContainer from './CardContainer';
 import EndScreen from './EndScreen';
 import BackButton from '../Components/BackButton';
 
+// Images
+import cardBackBlue from '../Images/CardBlue.jpg';
+import cardBackGreen from '../Images/CardGreen.jpg';
+import cardBackOrng from '../Images/CardOrng.jpg';
+import cardBackRed from '../Images/CardRed.jpg';
+
 // Styles
 const Model = styled.div`
   z-index: auto;
@@ -30,9 +36,11 @@ const GameContainer = ({ cardsToDisplay, themeName }) => {
   const [flippedCards, setFlippedCards] = useState(new Array(cardsToDisplay.length).fill(false));
   const [chosenCard1, setChosenCard1] = useState({ id: null, label: null });
   const [chosenCard2, setChosenCard2] = useState({ id: null, label: null });
-  
+
   const [gameComplete, setGameComplete] = useState(true);
   const [turns, setTurns] = useState(0);
+
+  var cardBack;
 
   useEffect(() => {
     if (flippedCards.every((v) => v === true)) {
@@ -79,11 +87,26 @@ const GameContainer = ({ cardsToDisplay, themeName }) => {
     setGameComplete(false);
   };
 
+  if (themeName === 'Animals') {
+    cardBack = cardBackOrng;
+  } else if (themeName === 'Food') {
+    cardBack = cardBackRed;
+  } else if (themeName === 'Locations') {
+    cardBack = cardBackBlue;
+  } else if (themeName === 'Celebs') {
+    cardBack = cardBackGreen;
+  }
+
   return (
     <div>
       <h2>{themeName}</h2>
       <p>Turns: {turns}</p>
-      <CardContainer cardsToDisplay={cardsToDisplay} flippedCards={flippedCards} onCardClick={onCardClick} />
+      <CardContainer
+        cardsToDisplay={cardsToDisplay}
+        cardBack={cardBack}
+        flippedCards={flippedCards}
+        onCardClick={onCardClick}
+      />
 
       {gameComplete ? (
         <Model>

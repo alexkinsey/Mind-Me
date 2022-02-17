@@ -2,7 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
   :root {
-    --maxWidth: 1024px;
+    --maxWidth: 1200px;
 
     --white: #fff;
     --lightGrey: #eee;
@@ -31,11 +31,28 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    margin: 0;
+    margin: 0 0 5em 0;
     padding: 0;
     display: flex;
     justify-content: center;
-    background-color: var(--darkGrey);
+    ${'' /* background-color: var(--darkGrey); */}
+
+    background: linear-gradient(105deg,#4a1149,#860d3c,#1a3b7c,#0b224e);
+    background-size: 250% 600%;
+    animation: gradient-animation 40s ease infinite;
+  }
+
+  @keyframes gradient-animation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
     
 
     h1 {

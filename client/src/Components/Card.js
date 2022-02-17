@@ -2,7 +2,10 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import ReactCardFlip from 'react-card-flip';
 
-import cardBack from '../Images/Back.jpg';
+import cardBackBlue from '../Images/CardBlue.jpg';
+import cardBackGreen from '../Images/CardGreen.jpg';
+import cardBackOrng from '../Images/CardOrng.jpg';
+import cardBackRed from '../Images/CardRed.jpg';
 
 const CardBackground = styled.div`
   /* position: absolute; */
@@ -34,7 +37,7 @@ const CardLabel = styled.p`
   text-shadow: 0 0 8px rgba(0,0,0,1);
 `;
 
-const Card = ({ id, cardImg, cardLabel, isFlipped, onCardClick }) => {
+const Card = ({ cardBack, id, cardImg, cardLabel, isFlipped, onCardClick }) => {
   return (
     <div>
       <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
