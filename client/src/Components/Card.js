@@ -5,6 +5,8 @@ import ReactCardFlip from 'react-card-flip';
 import cardBack from '../Images/Back.jpg';
 
 const CardBackground = styled.div`
+  /* position: absolute; */
+
   -webkit-box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.25);
   box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.25);
 
@@ -21,6 +23,17 @@ const CardBackground = styled.div`
   }
 `;
 
+const CardLabel = styled.p`
+  text-align: center;
+  color: var(--white);
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, -50%);
+
+  text-shadow: 0 0 8px rgba(0,0,0,1);
+`;
+
 const Card = ({ id, cardImg, cardLabel, isFlipped, onCardClick }) => {
   return (
     <div>
@@ -30,6 +43,7 @@ const Card = ({ id, cardImg, cardLabel, isFlipped, onCardClick }) => {
         </CardBackground>
 
         <CardBackground>
+          <CardLabel>{cardLabel}</CardLabel>
           <img src={cardImg} alt={cardLabel} onClick={() => onCardClick(id, cardLabel)} />
         </CardBackground>
       </ReactCardFlip>

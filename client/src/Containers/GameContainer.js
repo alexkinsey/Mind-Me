@@ -61,11 +61,11 @@ const GameContainer = ({ cardsToDisplay, themeName }) => {
   }, [chosenCard1, chosenCard2, flippedCards]);
 
   const onCardClick = (id, label) => {
-    if (chosenCard1.id === null && chosenCard2.id === null && !flippedCards[chosenCard1.id]) {
+    if (chosenCard1.id === null && chosenCard2.id === null && !flippedCards[id]) {
       setChosenCard1({ id: id, label: label });
       flippedCards[id] = true;
       setFlippedCards(flippedCards);
-    } else if (chosenCard2.id === null && chosenCard1.id !== null && !flippedCards[chosenCard2.id]) {
+    } else if (chosenCard2.id === null && chosenCard1.id !== null && !flippedCards[id]) {
       setChosenCard2({ id: id, label: label });
       flippedCards[id] = true;
       setFlippedCards(flippedCards);

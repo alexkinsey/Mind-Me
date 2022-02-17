@@ -6,10 +6,8 @@ import Card from '../Components/Card';
 const Grid = styled.div`
 display: flex;  
 flex-wrap: wrap;  
-width: 400px;  
-height: 300px;
-`
-;
+width: var(--maxWidth);
+`;
 
 const CardContainer = ({ cardsToDisplay, flippedCards, onCardClick }) => {
   var cardId = -1;
