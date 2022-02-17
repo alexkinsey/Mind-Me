@@ -1,8 +1,14 @@
-const BackButton = () => {
+import GameContainer from "../Containers/GameContainer";
+import MainMenuButton from "./MainMenuButton";
+import MindMe from "../MindMe";
+
+
+
+const BackButton = (handleBackButton) => {
   return (
     <div>
-      <h1> Back Button </h1>
-    </div>
+     <button onClick={() => handleBackButton()}>{}back</button>
+      </div>
   );
 };
 

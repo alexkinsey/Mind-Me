@@ -8,6 +8,7 @@ import GameContainer from './Containers/GameContainer';
 import ThemeButtonContainer from './Containers/ThemeButtonContainer';
 import DifficultyLevelContainer from './Containers/DifficultyLevelContainer';
 
+
 const Wrapper = styled.div`
   width: var(--maxWidth);
   margin: 0 auto;
@@ -44,6 +45,9 @@ const MindMe = () => {
 
     setMenuChoice('Game');
   };
+  const handleBackButton = () => {
+    
+  }
 
   return (
     <Wrapper>
