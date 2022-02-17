@@ -12,19 +12,23 @@ const Grid = styled.div`
   margin: auto;
 `;
 
-const CardContainer = ({cardsToDisplay}) => {
-  var cardId = 0;
+const CardContainer = ({ cardsToDisplay, flippedCards, onCardClick }) => {
+  var cardId = -1;
   const cardsNode = cardsToDisplay.map((card) => {
-    cardId = cardId + 1
-    return <Card key={cardId} cardImg={card.link} cardLabel={card.label}/>
-  })
-  
-  return (
-    <Grid>
-      {cardsNode}
-    </Grid>
-  );
-}
+    cardId = cardId + 1;
+    return (
+      <Card
+        key={cardId}
+        id={cardId}
+        isFlipped={flippedCards[cardId]}
+        cardImg={card.link}
+        cardLabel={card.label}
+        onCardClick={onCardClick}
+      />
+    );
+  });
 
+  return <Grid>{cardsNode}</Grid>;
+};
 
 export default CardContainer;
