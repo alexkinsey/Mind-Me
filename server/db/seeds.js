@@ -1,303 +1,303 @@
-use match_me;
+use mind_me;
 db.dropDatabase();
 
 db.animals.insertMany([
   {
     label: "Turtle",
-    link: "https://drive.google.com/file/d/1q5WQuvSZ1voPjepW7ORgkyixbhRPvGWo/view?usp=sharing",
+    link: "https://drive.google.com/uc?id=1rD90U98wwZm0LDfop7p_dZn7RQGyMPFW",
   },
   {
     label: "Mouse",
-    link: "https://drive.google.com/file/d/1hn4tsCNTCDN61wH9dCpPF1uLrkBiYm3k/view?usp=sharing",
+    link: "https://drive.google.com/uc?id=11DlORlmx_eHFKgFslqBXjx0AbYsCXh6N",
   },
   {
     label: "Elephant",
-    link: "https://drive.google.com/file/d/12tgYPm4PJ-jM92Af2PvbxBZe9AhvB8cJ/view?usp=sharing",
+    link: "https://drive.google.com/uc?id=1dH95W2fgJWSZDQ8G8SOTJkGzurFVWMXH",
   },
   {
     label: "Dolphin",
-    link: "https://drive.google.com/file/d/1EkGI5fQl4MdInqCaBORbU9SFQEtET7nB/view?usp=sharing",
+    link: "https://drive.google.com/uc?id=1Lt0v8lrXtTR769foZSNhPqfwXD-Du97l",
   },
   {
     label: "Bee",
-    link: "https://drive.google.com/file/d/16iJ6IGAlD11Boh-qmx9ijP0bPcPiUI8D/view?usp=sharing",
+    link: "https://drive.google.com/uc?id=1J0MUoR6tc5pqxTlX81LoxbYnuyqCdzjo",
   },
   {
     label: "Badger",
-    link: "https://drive.google.com/file/d/1M_OYyiSiaIawcO8QH96xZY0QyW362OzI/view?usp=sharing",
+    link: "https://drive.google.com/uc?id=1fmX2L0ezAaqDnAl949vxtHC1pkuY6gSw",
   },
   {
     label: "Snow Leopard",
-    link: "https://drive.google.com/file/d/14a4DLrG76Jr0HT2fpI_lm_MmDlbwInT5/view?usp=sharing",
+    link: "https://drive.google.com/uc?id=10EzatXknlkF12MOiwgfP7pQkYi-JAc2y",
   },
   {
     label: "Snake",
-    link: "https://drive.google.com/file/d/118ixO_9JTpP6npVX5h9duyQUJoGVeWdf/view?usp=sharing",
+    link: "https://drive.google.com/uc?id=1x_QHnrHjpg0AYrzp5jxKnlikFvIC_KMy",
   },
   {
     label: "Red Panda",
-    link: "https://drive.google.com/file/d/1UMSpC_5KjYaR7Y-smeCCRXApoT4VTZX4/view?usp=sharing",
+    link: "https://drive.google.com/uc?id=12tXgrtHYST-L0KmdissQM7psqdT0wv8W",
   },
   {
     label: "Rabbit",
-    link: "https://drive.google.com/file/d/1v3OiLUayVwalZoaBLMr9OOJGHnT5auDG/view?usp=sharing",
+    link: "https://drive.google.com/uc?id=1ESMu8OenZA4Rw8rpMBdM9vI9HFMM_869",
   },
   {
     label: "Parrot",
-    link: "https://drive.google.com/file/d/1kT9XXhgoLhsW-wzmvW_m1BpGiuEhdhRB/view?usp=sharing",
+    link: "https://drive.google.com/uc?id=1VVmucK619yaKz6IzmpHTGZPHCZlObMSe",
   },
   {
     label: "Owl",
-    link: "https://drive.google.com/file/d/1yMtuBDXpopybwW7jBX53CZO6vyQkC5qP/view?usp=sharing"
+    link: "https://drive.google.com/uc?id=1fnyDZyDNzXPOBRVlTmnaPNfhpEMxeVJO"
   },
   {
     label: "Otters",
-    link: "https://drive.google.com/file/d/10cijYlmh9TN01shX2g_s_HI0hAFSz8Ht/view?usp=sharing"
+    link: "https://drive.google.com/uc?id=1QShpR_A3hjGvCb_fGcNc76FmDRF_VclK"
   },
   {
     label: "Llama",
-    link: "https://drive.google.com/file/d/1oRfF2Kz113CWgViTFBEmi5tggyg8i1bl/view?usp=sharing"
+    link: "https://drive.google.com/uc?id=14PlUSHI2BcIzX5xpCXGGrN55OKSw3fjS"
   },
   {
     label: "Ladybird",
-    link: "https://drive.google.com/file/d/1loFdC1nrkyApX841g01EXC2gngGrYGMR/view?usp=sharing"
+    link: "https://drive.google.com/uc?id=11zwWIwNr3Q_ouKsvjhgU0XkywLTPlCQg"
   },
   {
     label: "Dog",
-    link: "https://drive.google.com/file/d/1loFdC1nrkyApX841g01EXC2gngGrYGMR/view?usp=sharing"
+    link: "https://drive.google.com/uc?id=1oqTvxr6CRsVTlnITo_0URh-RIxQ03Er9"
   },
   {
     label: "Chameleon",
-    link: "https://drive.google.com/file/d/1FQb5qF3nkZMt0iXJBtJAPA40QPPqPfwz/view?usp=sharing"
+    link: "https://drive.google.com/uc?id=1wpuda02M-LQ2-MSE-YFALrpQP71XD3MA"
   },
   {
     label: "Butterfly",
-    link: "https://drive.google.com/file/d/19GgcFMjyLCaRX62D1uf2sbbJafxnCPt-/view?usp=sharing"
+    link: "https://drive.google.com/uc?id=13LIr3pOtNvoJ4pUggplDrv3FcUzRf9SF"
   }
 ]);
 
 db.food.insertMany([
   {
     label: "Coffee",
-    link: "https://drive.google.com/file/d/1NklUk5I_EYe1oRydzaaCaLPK3u8PVH0b/view?usp=sharing",
+    link: "https://drive.google.com/uc?id=1uXGzPE5QO3Yzc50S-hmVRVhgnBIec9Ew",
   },
   {
     label: "Tacos",
-    link: "https://drive.google.com/file/d/1j2nNp24E3rnmE1vHHxfzST-cljvu1h_y/view?usp=sharing",
+    link: "https://drive.google.com/uc?id=1T18bVmDOzX_DHizHo7LMENzoX9DMdMq5",
   },
   {
     label: "Stuffed Eggplant",
-    link: "https://drive.google.com/file/d/1znkNFBDv2Fo79CvmJrRYE4P4saxXddHq/view?usp=sharing",
+    link: "https://drive.google.com/uc?id=1zY-7DtLwMOK_zHkTOshjAD5rnS_orfCC",
   },
   {
     label: "Shish Kebab",
-    link: "https://drive.google.com/file/d/1Cx4S6HyyaO8re35DnlocBqZx4zeWUqF0/view?usp=sharing",
+    link: "https://drive.google.com/uc?id=1tGKhCJpVGMxN4AKJQfhPJYKj-BKNC5kU",
   },
   {
     label: "Samosa",
-    link: "https://drive.google.com/file/d/1UQ-jSpmzMvkbHlEiHqQchydYtu7qbJZu/view?usp=sharing",
+    link: "https://drive.google.com/uc?id=1vv2qygWsuODlmVCyJszYLut8T5iGf3iY",
   },
   {
     label: "Salmon",
-    link: "https://drive.google.com/file/d/1Hn3avX_IK5kyD3G1cML3x4Iws5FePd0N/view?usp=sharing",
+    link: "https://drive.google.com/uc?id=1GDkE2oHL2dOvxdAXs38Ld7IkOPh9zc6Q",
   },
   {
     label: "Red Velvet",
-    link: "https://drive.google.com/file/d/1-M3NlaHp1p1P_xSTqNRXKFv-fg3MfXeU/view?usp=sharing",
+    link: "https://drive.google.com/uc?id=16CJpL3gcWDgaIpKKc7Ai_il5seRLdYUt",
   },
   {
     label: "Pizza",
-    link: "https://drive.google.com/file/d/1gYn4ILIbpE2PzWwqanFA_qcnc0oQFnAD/view?usp=sharing",
+    link: "https://drive.google.com/uc?id=1s5wnQ7Z8b3Et0QNJKLYLA5zDevmcyPkK",
   },
   {
     label: "Pasta",
-    link: "https://drive.google.com/file/d/1WtQS9SrPU6gqOqsT4LLdoJ3QS3IOC9X4/view?usp=sharing",
+    link: "https://drive.google.com/uc?id=1wNeJqYVWdxcMxePuqm0mGRUFpQNtq-kT",
   },
   {
     label: "Oats",
-    link: "https://drive.google.com/file/d/1WetG-w-1Hz9x8mSP9mA7grcSJ186F64o/view?usp=sharing",
+    link: "https://drive.google.com/uc?id=1BEJckbXbkLcZj7ummYW3QFUWMGn66pf2",
   },
   {
     label: "Menemen",
-    link: "https://drive.google.com/file/d/1347tetNM01A0iCuCNPQ7LAlte74gfIe3/view?usp=sharing",
+    link: "https://drive.google.com/uc?id=1k67sKIA6R2hVx7CueWoZk2mN5NXTVyU9",
   },
   {
     label: "Lasagne",
-    link: "https://drive.google.com/file/d/1KfwrPv8OeDnP8NiK7ehZCw1bWkoflpzK/view?usp=sharing",
+    link: "https://drive.google.com/uc?id=1zFENXMfLkBm8M5yPfbMagcibEvgMPLGH",
   },
   {
     label: "Laddoo",
-    link: "https://drive.google.com/file/d/1j-eB5CjnynB9Hz1l-Kmb_ZWnmRXfS3Ls/view?usp=sharing",
+    link: "https://drive.google.com/uc?id=1f2j8IMdjSdwz1qZEux37m1G8mEXyooNp",
   },
   {
     label: "Fruit Loaf",
-    link: "https://drive.google.com/file/d/1cX1LzzRZ5NRpqFW2dqsuxTBK02aw1K3t/view?usp=sharing",
+    link: "https://drive.google.com/uc?id=1RrHcFrAbIUmK47fN1I_N6gcRTNHNpKRo",
   },
   {
     label: "Fries",
-    link: "https://drive.google.com/file/d/1EUVo7IJP56IW6zq4LEnZ2VVk_iJa7j7F/view?usp=sharing",
+    link: "https://drive.google.com/uc?id=1b5Loq1iu9CGO7T5Ia_bz-O8rgEbFIWW6",
   },
   {
     label: "Chocolate Cake",
-    link: "https://drive.google.com/file/d/1XdqhsUePNoPNndpfVrvG3CBzPhW4YHSx/view?usp=sharing",
+    link: "https://drive.google.com/uc?id=1rtBuMoQV5TEH8pGOaW_JDmo2QbcKQaFW",
   },
   {
     label: "Burger",
-    link: "https://drive.google.com/file/d/1nck7IDNHMtVd-038c9PdxWd9_r3-fjLJ/view?usp=sharing",
+    link: "https://drive.google.com/uc?id=1OXHg1Icq0wofVO6xtNx1TRvPIPpQ2-Qa",
   },
   {
     label: "Avocado Toast",
-    link: "https://drive.google.com/file/d/1EXKG5hKzbDr4S1Ra8gYdGs22mpisQIFO/view?usp=sharing",
+    link: "https://drive.google.com/uc?id=1G394UBMwd1GV1c8mV-c41TyCaJLTv897",
   }
 ]);
 
 db.locations.insertMany([
   {
     label: "Algrave",
-    link: "https://drive.google.com/file/d/1pQJ42XrGo8Iyoa2bqfyU3EkaO2wAjg8w/view?usp=sharing",
+    link: "https://drive.google.com/uc?id=10_wvoq-k4Sy8-JLLInMTe2FfTG5Ws0qC",
   },
   {
     label: "Colosseum",
-    link: "https://drive.google.com/file/d/1pddYKd5xUIBbpOq5d3LIOcZpuFtqFrCY/view?usp=sharing",
+    link: "https://drive.google.com/uc?id=1FnmaMGFhL8ExbZarteA9u-kHWpz_Hl7K",
   },
   {
     label: "Victoria Falls",
-    link: "https://drive.google.com/file/d/12PvF4eP7iAj1-Wv2T2JcpwRCaY7muR7J/view?usp=sharing",
+    link: "https://drive.google.com/uc?id=1mCLzA2AcmLeoZnb2kd44fZM_I5wfNIE7",
   },
   {
     label: "Taj Mahal",
-    link: "https://drive.google.com/file/d/1mfYCRr0MtcaORFQ5HE_Pt6M-67upiwdm/view?usp=sharing",
+    link: "https://drive.google.com/uc?id=1hXhbU73orJeBr_OIr0AgTyDWj8UZZbPN",
   },
   {
     label: "Stonehenge",
-    link: "https://drive.google.com/file/d/1DbOE-RVTQZaEbSDD7Vuk352fyts63UNX/view?usp=sharing",
+    link: "https://drive.google.com/uc?id=1CfSTgbkWHcV7-uYxL_3Lpbet7nMlvZda",
   },
   {
     label: "Statue of Liberty",
-    link: "https://drive.google.com/file/d/1yTxCVL3iKLHDhHE-7xFZlbH1DuS_sstX/view?usp=sharing",
+    link: "https://drive.google.com/uc?id=1_IkmROvhVShOY7snzeZwN5NSQmGxD0nL",
   },
   {
     label: "Sahara Desert",
-    link: "https://drive.google.com/file/d/1tAlo15UBl0jhpomCrwWRouIcxX1MDemG/view?usp=sharing",
+    link: "https://drive.google.com/uc?id=1y6nC3attJnqu6TTKpK467UnospPaBxRz",
   },
   {
     label: "London Bridge",
-    link: "https://drive.google.com/file/d/1qc-yY2gqz6bIAdBkPAvFtQvmWQ-OVRnw/view?usp=sharing"
+    link: "https://drive.google.com/uc?id=14MigMlsIyVoY1i0pqF6n28SsqtdOQvSX",
   },
   {
     label: "Leaning tower of Pisa",
-    link: "https://drive.google.com/file/d/1TVwMPxhXia3Wuyg8Wqxwk_jjbPx17psF/view?usp=sharing"
+    link: "https://drive.google.com/uc?id=1xkdpQ3C8Ef_b9b0lAHFOKBr_4chS4DWA",
   },
   {
     label: "Kyoto",
-    link: "https://drive.google.com/file/d/1txncNVWJD0oPUye1Qp3gsQzRPtONGhoI/view?usp=sharing"
+    link: "https://drive.google.com/uc?id=1lracBT1DqIH-9U-dEbx0iadKcbPTVwbX",
   },
   {
     label: "Blue Lagoon",
-    link: "https://drive.google.com/file/d/1_2DMxElppA0gUhY9zkCXOlzhzL9EJSFa/view?usp=sharing"
+    link: "https://drive.google.com/uc?id=1As6d0qNDJ-qc5c4BB4OXWnywjW3E2ctt",
   },
   {
     label: "Burj Khalifa",
-    link: "https://drive.google.com/file/d/1JmnyADqCPMS2aO-L5RemFcAqIJF-xU-8/view?usp=sharing"
+    link: "https://drive.google.com/uc?id=1lT8t7_qVsXevvT7-EU3S7CRhukdHnUG7",
   },
   {
     label: "Eiffel Tower",
-    link: "https://drive.google.com/file/d/1rHKiGawY79JVDxhQjBs0CVuPkag-sNEP/view?usp=sharing"
+    link: "https://drive.google.com/uc?id=1R8USp-nsLZ541uwx23UO0SP8YWzxr-35",
   },
   {
     label: "Bora Bora",
-    link: "https://drive.google.com/file/d/11spG0LMqq8zHyVDSi5vJsXOa8lblYhyC/view?usp=sharing"
+    link: "https://drive.google.com/uc?id=1PxpauQ9JRrBD5qn0NXFMyjAHf6_YgEnM",
   },
   {
     label: "Grand Canal",
-    link: "https://drive.google.com/file/d/1XUZRLSxaqhTDHu8b9q7p8TNZYUr_c9Ui/view?usp=sharing"
+    link: "https://drive.google.com/uc?id=13GNPZlMwLcUjENqbNHDev8Wl6U5dA12U",
   },
   {
     label: "Death Valley",
-    link: "https://drive.google.com/file/d/1-_QrKz4BUQRZglVCshmFJAjvD6kytegl/view?usp=sharing"
+    link: "https://drive.google.com/uc?id=1jf2yedqtcAUpwcUfLyV_t-1DSxO9DgBN",
   },
   {
     label: "Grand Canyon",
-    link: "https://drive.google.com/file/d/1LClrSEvvLefAEWb3Qhu7cKvpdH-yvjrW/view?usp=sharing"
+    link: "https://drive.google.com/uc?id=1QOU2T1QvR00g-lMs6VwAKwYa-CggjEwX",
   },
   {
     label: "Christ the Redeemer",
-    link: "https://drive.google.com/file/d/12X2uBEVY60THpI-j2z6MnHQW7ROhsw81/view?usp=sharing"
+    link: "https://drive.google.com/uc?id=1DudBNnnWSU2NIPrI9D8LRGFHyZpqWD3h",
   }
 ])
 
 db.celebs.insertMany([
   {
-    label: "Boris",
-    link: "https://drive.google.com/file/d/1PNs0gnhg3sbRjHjuDE9r3MDLrMC3iO0M/view?usp=sharing",
+    label: "Boris Johnson",
+    link: "https://drive.google.com/uc?id=1vsryELvJ9qDIaH5bx2YND0HlvGIqUuYf",
   },
   {
-    label: "Trump",
-    link: "https://drive.google.com/file/d/1CHtCNp9lKitScGI9TqETuaQPPPchzqi4/view?usp=sharing",
+    label: "Donald Trump",
+    link: "https://drive.google.com/uc?id=13e3DDTRDm6dw-jhslnyNzqyosL_6repR",
   },
   {
-    label: "James",
-    link: "https://drive.google.com/file/d/19erFp2bxd5DNML5ELk5BXeq8gvsfucGs/view?usp=sharing",
+    label: "James Corden",
+    link: "https://drive.google.com/uc?id=1Aax-qK2YNp7MMKKrTes3fULcy0EvP2Dm",
   },
   {
-    label: "Jeremy",
-    link: "https://drive.google.com/file/d/1bx5kgXwfMmQqdN-RxjRIbUqrY5sB_9op/view?usp=sharing",
+    label: "Jeremy Clarkson",
+    link: "https://drive.google.com/uc?id=1bDCAtIZPk57GbWQauSOJMIMkilm-h-ZX",
   },
   {
-    label: "Joffrey",
-    link: "https://drive.google.com/file/d/1r53LEkPYom8uUA8dNC2O8sNSROeMCClY/view?usp=sharing",
+    label: "Joffrey Baratheon",
+    link: "https://drive.google.com/uc?id=16b7j7m7TNXVBWo6mcpQkkp6p-bNqA9uK",
   },
   {
-    label: "Kanye",
-    link: "https://drive.google.com/file/d/1Dx9CIL58FDkjy3GYrAdok5gPi7cgtJl6/view?usp=sharing",
+    label: "Kanye West",
+    link: "https://drive.google.com/uc?id=1RisxvdALCkWlpGo6HHr6W53f0YRx5sIB",
   },
   {
-    label: "Kermit",
-    link: "https://drive.google.com/file/d/15Dv85SFnAh6GjETup7QY8Ky4ndbwIXDt/view?usp=sharing",
+    label: "Kermit The Frog",
+    link: "https://drive.google.com/uc?id=1f4R2s39Ry5so7hKwCkjNOnQjLPW7B6Kd",
   },
   {
-    label: "Kim",
-    link: "https://drive.google.com/file/d/1zvBEOd6uS5r3IzdsHkBe-WdRe5EBBwUA/view?usp=sharing",
+    label: "Kim Kardashian",
+    link: "https://drive.google.com/uc?id=1wQrWFFgSFTTf2knCUzhgrd4gGrrWZFSy",
   },
   {
-    label: "Lewis",
-    link: "https://drive.google.com/file/d/1EiowKSG25hEcEanIIqb1wVJlBW509U16/view?usp=sharing",
+    label: "Lewis Capaldi",
+    link: "https://drive.google.com/uc?id=10XKKyxXNWKkboLQT0-aYAGVG2ITsXTMq",
   },
   {
     label: "Limmy",
-    link: "https://drive.google.com/file/d/1xZu63XMfAMtklPfTZwZ7IDHJGCnOUO25/view?usp=sharing",
+    link: "https://drive.google.com/uc?id=189MggHG9pcqqF4ltpb442ot6ClNczLSQ",
   },
   {
-    label: "MGK",
-    link: "https://drive.google.com/file/d/1gj5HCSSlyL18HFELBu7w4MyYmLNZJaFW/view?usp=sharing",
+    label: "Machine Gunn Kelly",
+    link: "https://drive.google.com/uc?id=16c2shWTK8P1qj3Tqqgt7xjzSwiBaUxb_",
   },
   {
-    label: "Megan",
-    link: "https://drive.google.com/file/d/1eWhLZPtGQ3ueohiHnayIzMZJyzgrY3XA/view?usp=sharing",
+    label: "Megan Fox",
+    link: "https://drive.google.com/uc?id=1lxOREeKQ4Sq7j3bBLLo4UwbWBuIefS32",
   },
   {
     label: "Miss Piggy",
-    link: "https://drive.google.com/file/d/1n3xCK2INslhcjdBHcAZalpnLFcRudPWY/view?usp=sharing",
+    link: "https://drive.google.com/uc?id=1BFc1Jf7u1J66NIzzwReMumGcFbe2oSbm",
   },
   {
     label: "Molly Mae",
-    link: "https://drive.google.com/file/d/1_AYmlQhbvVq-o2CvrmSLzFGpwcldL9jf/view?usp=sharing",
+    link: "https://drive.google.com/uc?id=1xhL8qJ5vJFa_O0I2i1tLypuLBFWwIbuo",
   },
   {
-    label: "Nicholas",
-    link: "https://drive.google.com/file/d/1KT5trJ486RFMiZAGYmtf_ZrRUDnHYcM3/view?usp=sharing",
+    label: "Nicholas Cage",
+    link: "https://drive.google.com/uc?id=1BRyuQZWXhgcOyvM4CPpwqcLjA3nzthnZ",
   },
   {
-    label: "Nigel",
-    link: "https://drive.google.com/file/d/1yoFmlINXxZD7pB5BVRKa2N-qxeSj_b4L/view?usp=sharing",
+    label: "Nigel Farage",
+    link: "https://drive.google.com/uc?id=1asyTFjKOK7CbuXCi8s6WvorzI3ObzF-D",
   },
   {
-    label: "Pete",
-    link: "https://drive.google.com/file/d/1mvDKYIXX2U4ObSZSKe3iToeNQV3TFmfk/view?usp=sharing",
+    label: "Pete Davidson",
+    link: "https://drive.google.com/uc?id=1SFwBvmGb9yNgJN2IhMt1rWriQKEJ_VpL",
   },
   {
     label: "Piers Morgan",
-    link: "https://drive.google.com/file/d/1xHBP6JGlrBUE5PzG7nZfcMYW0ysb5wC7/view?usp=sharing",
+    link: "https://drive.google.com/uc?id=1czj_a-NmnKnFXbi366zl8ZgyhhfefHGO",
   }
 
 ]);

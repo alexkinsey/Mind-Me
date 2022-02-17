@@ -19,9 +19,17 @@ MongoClient.connect('mongodb://localhost:27017', { useUnifiedTopology: true })
     const foodCollection = db.collection('food');
     const foodRouter = createRouter(foodCollection);
     app.use('/mind-me/food', foodRouter);
+
+    const locationsCollection = db.collection('locations');
+    const locationRouter = createRouter(locationsCollection);
+    app.use('/mind-me/locations', locationRouter);
+
+    const celebsCollection = db.collection('celebs');
+    const celebsRouter = createRouter(celebsCollection);
+    app.use('/mind-me/celebs', celebsRouter);
   })
   .catch(console.err);
 
 app.listen(5000, function () {
-  console.log(`Listening on port ${ this.address().port }`);
+  console.log(`Listening on port ${this.address().port}`);
 });

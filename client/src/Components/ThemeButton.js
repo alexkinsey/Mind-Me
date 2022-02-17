@@ -1,14 +1,9 @@
-const ThemeButton = ({menuPicker, setMenuPicker}) => {
-
-    return (
-        <div>
-
-        <button onClick={() => setMenuPicker(!menuPicker)}>Theme 1</button>
-
-        </div>
-
-    )
-
+const ThemeButton = ({ theme, handleThemeButton }) => {
+  return (
+    <div>
+      <button onClick={() => handleThemeButton(theme)}>{theme}</button>
+    </div>
+  );
 };
 
-export default ThemeButton
+export default ThemeButton;
