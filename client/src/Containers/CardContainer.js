@@ -4,13 +4,12 @@ import styled from 'styled-components';
 import Card from '../Components/Card';
 
 const Grid = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1em;
-  justify-content: space-between;
-
-  margin: auto;
-`;
+display: flex;  
+flex-wrap: wrap;  
+width: 400px;  
+height: 300px;
+`
+;
 
 const CardContainer = ({ cardsToDisplay, flippedCards, onCardClick }) => {
   var cardId = -1;

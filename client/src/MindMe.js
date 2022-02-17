@@ -65,3 +65,4 @@ const MindMe = () => {
 };
 
 export default MindMe;
+
