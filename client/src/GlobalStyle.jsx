@@ -42,28 +42,28 @@ export const GlobalStyle = createGlobalStyle`
       font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
       font-size: 2rem;
       font-weight: 600;
-      color: white;
+      color: var(--white);
       display: flex;
       align-contents: center;
       justify-content: center;
     }
     h2 { 
       font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-      color: var(--darkGrey);
+      color: var(--white);
       font-weight: 600;
     }
     h3 {
       font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-      color: var(--darkGrey);
+      color: var(--white);
       font-weight: 600;
     }
 
     p {
       font-size: 1rem;
-      color: var(--darkGrey);
+      color: var(--white);
     }
     li {
-      color: var(--darkGrey);
+      color: var(--white);
     }
 
     a {

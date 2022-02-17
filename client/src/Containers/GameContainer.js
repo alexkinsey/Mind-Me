@@ -1,12 +1,32 @@
 import { useState, useEffect } from 'react';
+import styled from 'styled-components';
+
 import CardContainer from './CardContainer';
+import EndScreen from './EndScreen';
 import BackButton from '../Components/BackButton';
+
+// STYLES
+const Model = styled.div`
+  z-index: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.5);
+
+  div {
+    margin: auto;
+    margin-top: 25vh;
+  }
+`;
 
 const GameContainer = ({ cardsToDisplay, themeName }) => {
   const [flippedCards, setFlippedCards] = useState(new Array(cardsToDisplay.length).fill(false));
   const [chosenCard1, setChosenCard1] = useState({ id: null, label: null });
   const [chosenCard2, setChosenCard2] = useState({ id: null, label: null });
   const [gameComplete, setGameComplete] = useState(false);
+  const [turns, setTurns] = useState(0);
 
   useEffect(() => {
     if (chosenCard1.id !== null && chosenCard2.id !== null) {
@@ -28,7 +48,6 @@ const GameContainer = ({ cardsToDisplay, themeName }) => {
   }, [chosenCard1, chosenCard2, flippedCards]);
 
   useEffect(() => {
-    console.log(flippedCards.every((v) => v === true));
     if (flippedCards.every((v) => v === true)) {
       console.log('complete');
       setGameComplete(true);
@@ -48,14 +67,21 @@ const GameContainer = ({ cardsToDisplay, themeName }) => {
       setChosenCard2({ id: id, label: label });
       flippedCards[id] = true;
       setFlippedCards(flippedCards);
+      setTurns(turns + 1);
     }
   };
 
   return (
     <div>
       <h2>{themeName}</h2>
-      {gameComplete ? <h3>Well done!</h3> : null}
+      <p>Turns: {turns}</p>
       <CardContainer cardsToDisplay={cardsToDisplay} flippedCards={flippedCards} onCardClick={onCardClick} />
+      
+      {gameComplete ? (
+        <Model>
+          <EndScreen turns={turns} />
+        </Model>
+      ) : null}
     </div>
   );
 };
