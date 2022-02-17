@@ -5,9 +5,8 @@ const StyledThemeButton = styled.button`
   color: black;
   width: 10rem;
   font-size: 16px;
-  border-radius: 4px;
+  border-radius: 15px;
   padding: 1rem 1rem;
-  margin: 1rem;
   cursor: pointer;
   border: none;
   outline: none;
@@ -19,11 +18,7 @@ const StyledThemeButton = styled.button`
 `;
 
 const ThemeButton = ({ theme, handleThemeButton }) => {
-  return (
-    <div>
-      <StyledThemeButton onClick={() => handleThemeButton(theme)}>{theme}</StyledThemeButton>
-    </div>
-  );
+  return <StyledThemeButton onClick={() => handleThemeButton(theme)}>{theme}</StyledThemeButton>;
 };
 
 export default ThemeButton;

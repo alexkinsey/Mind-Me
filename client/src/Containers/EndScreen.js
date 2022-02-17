@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-  width: 20em;
+  width: 25em;
   padding: 5em;
 
   border: 1px solid white;
@@ -12,6 +12,8 @@ const Wrapper = styled.div`
   backdrop-filter: blur(33px);
   -webkit-box-shadow: 0px 20px 20px 5px rgba(0,0,0,0.5);
   box-shadow: 0px 20px 20px 5px rgba(0,0,0,0.5);
+
+  text-align: center;
 `;
 
 const ButtonContainer = styled.div`
@@ -24,9 +26,9 @@ const NewGameButton = styled.button`
   color: var(--white);
   border: none;
   border-radius: 15px;
-  width: 7em;
-  padding: 10px 0;
-  font-size: var(--fontMed);
+  width: 10em;
+  padding: 1em;
+  font-size: 16px;
 
   :hover {
     cursor: pointer;
