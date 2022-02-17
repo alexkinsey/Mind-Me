@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { useWindowSize } from 'react-use';
 import Confetti from 'react-confetti';
+import useSound from 'use-sound';
 
 // Components
 import CardContainer from './CardContainer';
@@ -13,6 +14,10 @@ import cardBackBlue from '../Images/CardBlue.jpg';
 import cardBackGreen from '../Images/CardGreen.jpg';
 import cardBackOrng from '../Images/CardOrng.jpg';
 import cardBackRed from '../Images/CardRed.jpg';
+
+import Pop from '../Sounds/pop.mp3';
+import Correct from '../Sounds/success.mp3';
+import Incorrect from '../Sounds/incorrect.mp3';
 
 // Styles
 const Model = styled.div`
@@ -40,6 +45,10 @@ const GameContainer = ({ cardsToDisplay, themeName }) => {
   const [gameComplete, setGameComplete] = useState(true);
   const [turns, setTurns] = useState(0);
 
+  const [clickSound] = useSound(Pop);
+  const [correctSound] = useSound(Correct);
+  const [incorrectSound] = useSound(Incorrect);
+
   var cardBack;
 
   useEffect(() => {
@@ -54,6 +63,10 @@ const GameContainer = ({ cardsToDisplay, themeName }) => {
       if (chosenCard1.label === chosenCard2.label) {
         setChosenCard2({ id: null, label: null });
         setChosenCard1({ id: null, label: null });
+        
+        setTimeout(function () {
+          correctSound();
+        }, 680);
       } else {
         setTimeout(function () {
           flippedCards[chosenCard2.id] = false;
@@ -63,6 +76,8 @@ const GameContainer = ({ cardsToDisplay, themeName }) => {
 
           setChosenCard2({ id: null, label: null });
           setChosenCard1({ id: null, label: null });
+
+          incorrectSound();
         }, 680);
       }
     }
@@ -72,12 +87,18 @@ const GameContainer = ({ cardsToDisplay, themeName }) => {
     if (chosenCard1.id === null && chosenCard2.id === null && !flippedCards[id]) {
       setChosenCard1({ id: id, label: label });
       flippedCards[id] = true;
+
       setFlippedCards(flippedCards);
+
+      clickSound();
     } else if (chosenCard2.id === null && chosenCard1.id !== null && !flippedCards[id]) {
       setChosenCard2({ id: id, label: label });
       flippedCards[id] = true;
+
       setFlippedCards(flippedCards);
       setTurns(turns + 1);
+
+      clickSound();
     }
   };
 

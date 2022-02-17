@@ -14,10 +14,10 @@ const Wrapper = styled.div`
   width: var(--maxWidth);
   margin: 0 auto;
 
-  padding-top: 2em;
+  padding-top: 1em;
 
   h1 {
-    margin-bottom: 2em;
+    margin-bottom: 1em;
   }
 `;
 
