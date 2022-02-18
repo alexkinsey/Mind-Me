@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 
+// Components
 import PrimaryButton from '../Styles/Button.style';
 
+// Styles
 const StyledBackButton = styled(PrimaryButton)`
   background-color: rgba(0, 0, 0, 0.3);
   font-size: ${(props) => (props.size === 'small' ? '1.5em' : '2.5em')};

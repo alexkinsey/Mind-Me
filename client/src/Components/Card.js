@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import ReactCardFlip from 'react-card-flip';
 
+// Styles
 const CardBackground = styled.div`
   -webkit-box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.25);
   box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.25);
@@ -17,7 +18,6 @@ const CardBackground = styled.div`
     height: 100%;
   }
 `;
-
 const CardLabel = styled.span`
   text-align: center;
   color: var(--white);
@@ -26,7 +26,7 @@ const CardLabel = styled.span`
   bottom: 0;
   transform: translate(-50%, -50%);
 
-  text-shadow: 0 0 8px rgba(0,0,0,1);
+  text-shadow: 0 0 8px rgba(0, 0, 0, 1);
 `;
 
 const Card = ({ cardBack, id, cardImg, cardLabel, isFlipped, onCardClick }) => {

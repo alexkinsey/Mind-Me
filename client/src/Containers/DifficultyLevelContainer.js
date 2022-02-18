@@ -1,8 +1,10 @@
 import styled from 'styled-components';
 
+// Components
 import BackButton from '../Components/BackButton';
 import DifficultyLevelsButton from '../Components/DifficultyLevelsButton';
 
+// Styles
 const Wrapper = styled.div`
   display: flex;
   gap: 2em;
@@ -18,7 +20,7 @@ const DifficultyLevelContainer = ({ handleDifficultyButton, handleBackButton }) 
       <DifficultyLevelsButton handleDifficultyButton={handleDifficultyButton} difficulty={'Medium'} />
       <DifficultyLevelsButton handleDifficultyButton={handleDifficultyButton} difficulty={'Hard'} />
       <DifficultyLevelsButton handleDifficultyButton={handleDifficultyButton} difficulty={'Too hot to handle!'} />
-      <BackButton handleBackButton={handleBackButton}/>
+      <BackButton handleBackButton={handleBackButton} />
     </Wrapper>
   );
 };

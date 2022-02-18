@@ -11,26 +11,23 @@ import DifficultyLevelContainer from './Containers/DifficultyLevelContainer';
 import { GlobalStyle } from './Styles/GlobalStyle';
 
 const Wrapper = styled.div`
-  /* width: var(--maxWidth); */
   margin: 0 auto;
-
 `;
 const Heading = styled.h1`
-animation: myAnim 1s ease 0s 1 normal forwards;
+  animation: myAnim 1s ease 0s 1 normal forwards;
 
+  @keyframes myAnim {
+    0% {
+      transform: scale(0.5);
+      transform-origin: 50% 100%;
+    }
 
-@keyframes myAnim {
-  0% {
-    transform: scale(0.5);
-    transform-origin: 50% 100%;
+    100% {
+      transform: scale(1);
+      transform-origin: 50% 100%;
+    }
   }
-
-  100% {
-    transform: scale(1);
-    transform-origin: 50% 100%;
-  }
-}
-`
+`;
 
 const MindMe = () => {
   const [themeName, setThemeName] = useState('');
@@ -75,8 +72,7 @@ const MindMe = () => {
 
   return (
     <Wrapper>
-      
-     <Heading>Mind Me</Heading>
+      <Heading>Mind Me</Heading>
       {menuChoice === 'Theme' ? (
         <ThemeButtonContainer handleThemeButton={handleThemeButton} />
       ) : menuChoice === 'Difficulty' ? (

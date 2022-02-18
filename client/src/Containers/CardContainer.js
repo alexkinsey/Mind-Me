@@ -1,8 +1,9 @@
-import React from 'react';
 import styled from 'styled-components';
 
+// Components
 import Card from '../Components/Card';
 
+// Styles
 const Grid = styled.div`
   display: grid;
   max-height: flex;

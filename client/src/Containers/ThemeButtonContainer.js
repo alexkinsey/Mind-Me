@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 
-import BackButton from '../Components/BackButton';
+// Components
 import ThemeButton from '../Components/ThemeButton';
 
+// Styles
 const Wrapper = styled.div`
   display: flex;
   gap: 2em;
@@ -13,8 +14,9 @@ const Wrapper = styled.div`
 const ThemeButtonContainer = ({ handleThemeButton }) => {
   return (
     <Wrapper>
-      <p>Welcome to mind me! A memory testing game.
-        Choose your favourite topic and match the cards in few turns as possible
+      <p>
+        Welcome to mind me! A memory testing game. Choose your favourite topic and match the cards in few turns as
+        possible
       </p>
       <ThemeButton theme={'Animals'} handleThemeButton={handleThemeButton} />
       <ThemeButton theme={'Celebs'} handleThemeButton={handleThemeButton} />

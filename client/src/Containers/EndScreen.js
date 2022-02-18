@@ -1,9 +1,10 @@
-import React from 'react';
 import styled from 'styled-components';
 import arrayShuffle from 'array-shuffle';
 
-import PrimaryButton from '../Styles/Button.style'
+// Components
+import PrimaryButton from '../Styles/Button.style';
 
+// Styles
 const Wrapper = styled.div`
   width: 25em;
   padding: 5em;
@@ -18,12 +19,10 @@ const Wrapper = styled.div`
 
   text-align: center;
 `;
-
 const ButtonContainer = styled.div`
   display: flex;
   justify-content: space-around;
 `;
-
 const NewGameButton = styled(PrimaryButton)`
   width: 8em;
   padding: 1em;
@@ -39,7 +38,6 @@ const NewGameButton = styled(PrimaryButton)`
     background: var(--accentDark);
   }
 `;
-
 const RetryButton = styled(PrimaryButton)`
   width: 6.5em;
   padding: 1em;
