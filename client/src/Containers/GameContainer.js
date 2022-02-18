@@ -37,6 +37,12 @@ const Model = styled.div`
     transform: translate(0%, 75%);
   }
 `;
+const BackButtonContainer = styled.div`
+  z-index: auto;
+  position: absolute;
+  top: 2.5rem;
+  left: 1rem;
+`;
 
 const GameContainer = ({ cardsToDisplay, themeName, handleBackButton }) => {
   const { width, height } = useWindowSize();
@@ -146,7 +152,10 @@ const GameContainer = ({ cardsToDisplay, themeName, handleBackButton }) => {
 
   return (
     <div>
-      {/* <h2>{themeName}</h2> */}
+      <BackButtonContainer>
+        <BackButton size={'small'} handleBackButton={handleBackButton} />
+      </BackButtonContainer>
+
       {maxTurns > 0 ? <TurnsLeft turns={turns} maxTurns={maxTurns} /> : null}
 
       <CardContainer
@@ -155,6 +164,7 @@ const GameContainer = ({ cardsToDisplay, themeName, handleBackButton }) => {
         flippedCards={flippedCards}
         onCardClick={onCardClick}
       />
+
       {gameComplete && endingScenario === 'win' ? (
         <Model>
           <Confetti width={width} height={height} gravity={0.25} numberOfPieces={400} />
