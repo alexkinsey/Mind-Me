@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 const StyledThemeButton = styled.button`
-  background-color: springGreen;
-  color: black;
+  background-color: transparent;
+  color: white;
   font-size: 20px;
   border-radius: 10px;
   padding: 2rem 4rem;
@@ -13,11 +13,11 @@ const StyledThemeButton = styled.button`
   display: flex;
   text-align: center;
   margin-top: 15px;
-  border: none;
-
+  border: 2px solid white;
+  width: 10em;
 
   &:hover {
-    background-color: salmon;
+    background-color: ${(props)=>props.highlightColour};
     color: white;
     box-shadow: 0 5px 15px rgba(225, 246, 136, .4);
 
@@ -31,7 +31,17 @@ justify-content: center;
 
 
 const ThemeButton = ({ theme, handleThemeButton }) => {
-  return <StyledThemeButton onClick={() => handleThemeButton(theme)}>{theme}</StyledThemeButton>;
+  var highlightColour;
+  if(theme === 'Animals'){
+    highlightColour = 'orange';
+  } else if(theme === 'Celebs'){
+    highlightColour = 'MediumSeaGreen';
+  } else if(theme === 'Locations'){
+    highlightColour = 'tomato';
+  }else{
+      highlightColour = 'DodgerBlue';
+  }
+  return <StyledThemeButton highlightColour = {highlightColour} onClick={() => handleThemeButton(theme)}>{theme}</StyledThemeButton>;
 };
 
 export default ThemeButton;

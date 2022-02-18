@@ -13,6 +13,9 @@ const Wrapper = styled.div`
 const ThemeButtonContainer = ({ handleThemeButton }) => {
   return (
     <Wrapper>
+      <p>Welcome to mind me! A memory testing game.
+        Choose your favourite topic and match the cards in few turns as possible
+      </p>
       <ThemeButton theme={'Animals'} handleThemeButton={handleThemeButton} />
       <ThemeButton theme={'Celebs'} handleThemeButton={handleThemeButton} />
       <ThemeButton theme={'Locations'} handleThemeButton={handleThemeButton} />

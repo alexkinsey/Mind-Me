@@ -13,6 +13,7 @@ const Wrapper = styled.div`
 const DifficultyLevelContainer = ({ handleDifficultyButton, handleBackButton }) => {
   return (
     <Wrapper>
+      <p>Choose a difficulty level and don't run out of turns!</p>
       <DifficultyLevelsButton handleDifficultyButton={handleDifficultyButton} difficulty={'Easy'} />
       <DifficultyLevelsButton handleDifficultyButton={handleDifficultyButton} difficulty={'Medium'} />
       <DifficultyLevelsButton handleDifficultyButton={handleDifficultyButton} difficulty={'Hard'} />
