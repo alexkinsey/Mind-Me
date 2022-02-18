@@ -38,10 +38,16 @@ const Model = styled.div`
   }
 `;
 const BackButtonContainer = styled.div`
-  z-index: auto;
+  z-index: 100;
   position: absolute;
   top: 2.5rem;
   left: 1rem;
+`;
+const TurnsLeftContainer = styled.div`
+  z-index: 100;
+  position: absolute;
+  right: 1rem;
+  top: 1.8rem;
 `;
 
 const GameContainer = ({ cardsToDisplay, themeName, handleBackButton }) => {
@@ -156,7 +162,7 @@ const GameContainer = ({ cardsToDisplay, themeName, handleBackButton }) => {
         <BackButton size={'small'} handleBackButton={handleBackButton} />
       </BackButtonContainer>
 
-      {maxTurns > 0 ? <TurnsLeft turns={turns} maxTurns={maxTurns} /> : null}
+      <TurnsLeftContainer>{maxTurns > 0 ? <TurnsLeft turns={turns} maxTurns={maxTurns} /> : null}</TurnsLeftContainer>
 
       <CardContainer
         cardsToDisplay={cardsToDisplay}
