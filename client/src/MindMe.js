@@ -11,7 +11,7 @@ import DifficultyLevelContainer from './Containers/DifficultyLevelContainer';
 import { GlobalStyle } from './GlobalStyle';
 
 const Wrapper = styled.div`
-  width: var(--maxWidth);
+  /* width: var(--maxWidth); */
   margin: 0 auto;
 
   padding-top: 1em;
@@ -40,11 +40,11 @@ const MindMe = () => {
     let shuffledCards = arrayShuffle(themeData);
 
     if (difficulty === 'Hard') {
-      shuffledCards = shuffledCards.slice(0, 6);
+      shuffledCards = shuffledCards.slice(0, 12);
     } else if (difficulty === 'Medium') {
-      shuffledCards = shuffledCards.slice(0, 5);
+      shuffledCards = shuffledCards.slice(0, 8);
     } else if (difficulty === 'Easy') {
-      shuffledCards = shuffledCards.slice(0, 3);
+      shuffledCards = shuffledCards.slice(0, 4);
     }
 
     shuffledCards = arrayShuffle(shuffledCards.concat(shuffledCards));
