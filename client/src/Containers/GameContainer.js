@@ -20,6 +20,7 @@ import Pop from '../Sounds/pop.mp3';
 import Correct from '../Sounds/success.mp3';
 import Incorrect from '../Sounds/incorrect.mp3';
 import Win from '../Sounds/win.mp3';
+import TurnsLeft from '../Components/TurnsLeft';
 
 // Styles
 const Model = styled.div`
@@ -145,12 +146,8 @@ const GameContainer = ({ cardsToDisplay, themeName, handleBackButton }) => {
 
   return (
     <div>
-      <h2>{themeName}</h2>
-      {maxTurns > 0 ? (
-        <p>
-          Turns: {turns}/{maxTurns}
-        </p>
-      ) : null}
+      {/* <h2>{themeName}</h2> */}
+      {maxTurns > 0 ? <TurnsLeft turns={turns} maxTurns={maxTurns} /> : null}
 
       <CardContainer
         cardsToDisplay={cardsToDisplay}

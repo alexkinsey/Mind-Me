@@ -1,8 +1,16 @@
-const TurnsLeft = () => {
+import styled from 'styled-components'
+
+const Wrapper = styled.div`
+  position: fixed;
+  right: 1rem;
+  top: 0;
+`
+
+const TurnsLeft = ({turns, maxTurns}) => {
   return (
-    <div>
-      <h1>TurnsLeft</h1>
-    </div>
+    <Wrapper>
+      <p>{maxTurns - turns} turns left</p>
+    </Wrapper>
   );
 };
 

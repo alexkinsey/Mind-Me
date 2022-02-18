@@ -8,7 +8,7 @@ import ThemeButtonContainer from './Containers/ThemeButtonContainer';
 import DifficultyLevelContainer from './Containers/DifficultyLevelContainer';
 
 // Styles
-import { GlobalStyle } from './GlobalStyle';
+import { GlobalStyle } from './Styles/GlobalStyle';
 
 const Wrapper = styled.div`
   /* width: var(--maxWidth); */
