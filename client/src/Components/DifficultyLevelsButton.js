@@ -35,7 +35,7 @@ const DifficultyLevelsButton = ({handleDifficultyButton, difficulty}) => {
   return (
     <DifficultyButtonContainer>
     <div>
-      <StyledThemeButton onClick={() => handleDifficultyButton(difficulty)}>{difficulty}</StyledThemeButton>
+      <StyledDifficultyButton onClick={() => handleDifficultyButton(difficulty)}>{difficulty}</StyledDifficultyButton>
     </div>
     </DifficultyButtonContainer>
   );
