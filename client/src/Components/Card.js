@@ -18,7 +18,7 @@ const CardBackground = styled.div`
   }
 `;
 
-const CardLabel = styled.p`
+const CardLabel = styled.span`
   text-align: center;
   color: var(--white);
   position: absolute;

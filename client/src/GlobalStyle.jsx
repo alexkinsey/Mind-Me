@@ -57,7 +57,7 @@ export const GlobalStyle = createGlobalStyle`
 
     h1 {
       font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-      font-size: 2rem;
+      font-size: 5rem;
       font-weight: 600;
       color: var(--white);
       display: flex;
@@ -76,7 +76,7 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     p {
-      font-size: 1rem;
+      font-size: 1.75rem;
       color: var(--white);
     }
     li {

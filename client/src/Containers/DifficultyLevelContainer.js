@@ -18,7 +18,7 @@ const DifficultyLevelContainer = ({ handleDifficultyButton, handleBackButton }) 
       <DifficultyLevelsButton handleDifficultyButton={handleDifficultyButton} difficulty={'Medium'} />
       <DifficultyLevelsButton handleDifficultyButton={handleDifficultyButton} difficulty={'Hard'} />
       <DifficultyLevelsButton handleDifficultyButton={handleDifficultyButton} difficulty={'Too hot to handle!'} />
-      <BackButton handleBackButton={handleBackButton}>Back</BackButton>
+      <BackButton handleBackButton={handleBackButton}/>
     </Wrapper>
   );
 };

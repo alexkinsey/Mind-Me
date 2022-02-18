@@ -14,12 +14,23 @@ const Wrapper = styled.div`
   /* width: var(--maxWidth); */
   margin: 0 auto;
 
-  padding-top: 1em;
-
-  h1 {
-    margin-bottom: 1em;
-  }
 `;
+const Heading = styled.h1`
+animation: myAnim 1s ease 0s 1 normal forwards;
+
+
+@keyframes myAnim {
+  0% {
+    transform: scale(0.5);
+    transform-origin: 50% 100%;
+  }
+
+  100% {
+    transform: scale(1);
+    transform-origin: 50% 100%;
+  }
+}
+`
 
 const MindMe = () => {
   const [themeName, setThemeName] = useState('');
@@ -64,7 +75,8 @@ const MindMe = () => {
 
   return (
     <Wrapper>
-      <h1>Mind Me</h1>
+      
+     <Heading>Mind Me</Heading>
       {menuChoice === 'Theme' ? (
         <ThemeButtonContainer handleThemeButton={handleThemeButton} />
       ) : menuChoice === 'Difficulty' ? (

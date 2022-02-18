@@ -4,23 +4,23 @@ import MindMe from '../MindMe';
 import styled from 'styled-components';
 
 const StyledBackButton = styled.button`
-background-color: salmon;
-color: black;
-font-size: 20px;
+background-color: rgba(0,0,0,0.3);
+color: white;
+font-size: 2.5em;
 border-radius: 10px;
-padding: 2rem 4rem;
+padding: 1rem 4rem 1.2rem 4rem;
 margin: 1rem;
 cursor: pointer;
-border: none;
+border: 2px solid white;
 outline: none
 display: flex;
 text-align: center;
 margin-top: 15px;
+font-weight: bold;
 
 
 &:hover {
-  background-color: springGreen;
-  color: black;
+  background-color: black;
   box-shadow: 0 5px 15px rgba(225, 246, 136, .4);
 
 }
@@ -29,7 +29,7 @@ margin-top: 15px;
 const BackButton = ({handleBackButton}) => {
   return (
     <div>
-      <StyledBackButton onClick={() => handleBackButton()}>Back</StyledBackButton>
+      <StyledBackButton onClick={() => handleBackButton()}>&#x2190;</StyledBackButton>
     </div>
   );
 };
