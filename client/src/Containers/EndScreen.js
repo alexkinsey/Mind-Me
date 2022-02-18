@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import arrayShuffle from 'array-shuffle';
 
+import PrimaryButton from '../Styles/Button.style'
+
 const Wrapper = styled.div`
   width: 25em;
   padding: 5em;
@@ -22,23 +24,35 @@ const ButtonContainer = styled.div`
   justify-content: space-around;
 `;
 
-const NewGameButton = styled.button`
-  background: var(--accent);
-  color: var(--white);
-  border: 2px solid var(--accentDark);
-  border-radius: 15px;
-  width: 10em;
+const NewGameButton = styled(PrimaryButton)`
+  width: 8em;
   padding: 1em;
-  font-size: 18px;
 
   :hover {
     cursor: pointer;
     background: var(--accentLight);
+    box-shadow: none;
   }
 
-  :click {
+  :active {
     cursor: pointer;
     background: var(--accentDark);
+  }
+`;
+
+const RetryButton = styled(PrimaryButton)`
+  width: 6.5em;
+  padding: 1em;
+
+  :hover {
+    cursor: pointer;
+    background: var(--alertLight);
+    box-shadow: none;
+  }
+
+  :active {
+    cursor: pointer;
+    background: var(--alert);
   }
 `;
 
@@ -67,7 +81,7 @@ const EndScreen = ({ turns, onRetryClick, endingScenario, handleBackButton }) =>
       {endingScenario === 'win' ? <h3>You completed the puzzle in {turns} turns.</h3> : null}
       <ButtonContainer>
         <NewGameButton onClick={() => handleBackButton()}>New game</NewGameButton>
-        <NewGameButton onClick={() => onRetryClick()}>Retry</NewGameButton>
+        <RetryButton onClick={() => onRetryClick()}>Retry</RetryButton>
       </ButtonContainer>
     </Wrapper>
   );
