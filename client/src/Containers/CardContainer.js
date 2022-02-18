@@ -4,14 +4,13 @@ import styled from 'styled-components';
 import Card from '../Components/Card';
 
 const Grid = styled.div`
-   display: grid;
-   max-height: flex;
-   grid-template-columns: repeat(4, 1fr);
-   row-gap: 15px;
-   column-gap: 15px;
-   justify-items: center;
-`
-;
+  display: grid;
+  max-height: flex;
+  grid-template-columns: repeat(${(props) => props.columnNumber}, 1fr);
+  row-gap: 15px;
+  column-gap: 15px;
+  justify-items: center;
+`;
 
 const CardContainer = ({ cardsToDisplay, cardBack, flippedCards, onCardClick }) => {
   var cardId = -1;
@@ -30,7 +29,16 @@ const CardContainer = ({ cardsToDisplay, cardBack, flippedCards, onCardClick }) 
     );
   });
 
-  return <Grid>{cardsNode}</Grid>;
+  var numberOfColumns;
+  if (cardsToDisplay.length > 30) {
+    numberOfColumns = 9;
+  } else if (cardsToDisplay.length > 16) {
+    numberOfColumns = 8;
+  } else {
+    numberOfColumns = 4;
+  }
+
+  return <Grid columnNumber={numberOfColumns}>{cardsNode}</Grid>;
 };
 
 export default CardContainer;
