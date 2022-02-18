@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import arrayShuffle from 'array-shuffle';
 
 const Wrapper = styled.div`
   width: 25em;
@@ -7,11 +8,11 @@ const Wrapper = styled.div`
 
   border: 1px solid white;
   border-radius: 25px;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(255, 255, 255, 0.1);
 
   backdrop-filter: blur(33px);
-  -webkit-box-shadow: 0px 20px 20px 5px rgba(0, 0, 0, 0.5);
-  box-shadow: 0px 20px 20px 5px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0px 20px 20px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 20px 20px 0px rgba(0, 0, 0, 0.5);
 
   text-align: center;
 `;
@@ -24,11 +25,11 @@ const ButtonContainer = styled.div`
 const NewGameButton = styled.button`
   background: var(--accent);
   color: var(--white);
-  border: none;
+  border: 2px solid var(--accentDark);
   border-radius: 15px;
   width: 10em;
   padding: 1em;
-  font-size: 16px;
+  font-size: 18px;
 
   :hover {
     cursor: pointer;
@@ -41,10 +42,21 @@ const NewGameButton = styled.button`
   }
 `;
 
-const EndScreen = ({ turns, onRetryClick, endingScenario }) => {
+const EndScreen = ({ turns, onRetryClick, endingScenario, handleBackButton }) => {
   var endingMessage;
+  const winMessages = [
+    'Congratulations!',
+    'Faultless!',
+    'Flawless!',
+    'Excellent!',
+    'Perfect!',
+    'Well done!',
+    'Great job!',
+  ];
+  const winMessageShuffled = arrayShuffle(winMessages);
+
   if (endingScenario === 'win') {
-    endingMessage = 'Congratulations!';
+    endingMessage = winMessageShuffled[0];
   } else if (endingScenario === 'lose') {
     endingMessage = "Your memory isn't the best, try again?";
   }
@@ -54,7 +66,7 @@ const EndScreen = ({ turns, onRetryClick, endingScenario }) => {
       <h1>{endingMessage}</h1>
       {endingScenario === 'win' ? <h3>You completed the puzzle in {turns} turns.</h3> : null}
       <ButtonContainer>
-        <NewGameButton onClick={() => window.location.reload(false)}>New game</NewGameButton>
+        <NewGameButton onClick={() => handleBackButton()}>New game</NewGameButton>
         <NewGameButton onClick={() => onRetryClick()}>Retry</NewGameButton>
       </ButtonContainer>
     </Wrapper>

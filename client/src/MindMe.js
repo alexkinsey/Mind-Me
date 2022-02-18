@@ -52,12 +52,15 @@ const MindMe = () => {
 
     setMenuChoice('Game');
   };
+
   const handleBackButton = () => {
-    if(menuChoice==="Difficulty"){
+    if (menuChoice === 'Difficulty' || menuChoice === 'Game') {
       setMenuChoice('Theme');
+      setThemeName('');
+      setThemeData([]);
+      setCardsToDisplay([]);
     }
   };
-  
 
   return (
     <Wrapper>
@@ -67,7 +70,7 @@ const MindMe = () => {
       ) : menuChoice === 'Difficulty' ? (
         <DifficultyLevelContainer handleDifficultyButton={handleDifficultyButton} handleBackButton={handleBackButton} />
       ) : menuChoice === 'Game' ? (
-        <GameContainer cardsToDisplay={cardsToDisplay} themeName={themeName} />
+        <GameContainer cardsToDisplay={cardsToDisplay} themeName={themeName} handleBackButton={handleBackButton} />
       ) : null}
       <GlobalStyle />
     </Wrapper>

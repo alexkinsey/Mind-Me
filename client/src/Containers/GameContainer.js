@@ -37,14 +37,14 @@ const Model = styled.div`
   }
 `;
 
-const GameContainer = ({ cardsToDisplay, themeName }) => {
+const GameContainer = ({ cardsToDisplay, themeName, handleBackButton }) => {
   const { width, height } = useWindowSize();
 
   const [flippedCards, setFlippedCards] = useState(new Array(cardsToDisplay.length).fill(false));
   const [chosenCard1, setChosenCard1] = useState({ id: null, label: null });
   const [chosenCard2, setChosenCard2] = useState({ id: null, label: null });
 
-  var startingMaxTurns = 1000;
+  var startingMaxTurns = 0;
   if (cardsToDisplay.length > 30) {
     startingMaxTurns = 60;
   } else if (cardsToDisplay.length > 16) {
@@ -146,7 +146,7 @@ const GameContainer = ({ cardsToDisplay, themeName }) => {
   return (
     <div>
       <h2>{themeName}</h2>
-      {maxTurns < 100 ? (
+      {maxTurns > 0 ? (
         <p>
           Turns: {turns}/{maxTurns}
         </p>
@@ -161,11 +161,21 @@ const GameContainer = ({ cardsToDisplay, themeName }) => {
       {gameComplete && endingScenario === 'win' ? (
         <Model>
           <Confetti width={width} height={height} gravity={0.25} numberOfPieces={400} />
-          <EndScreen turns={turns} onRetryClick={onRetryClick} endingScenario={endingScenario} />
+          <EndScreen
+            turns={turns}
+            onRetryClick={onRetryClick}
+            endingScenario={endingScenario}
+            handleBackButton={handleBackButton}
+          />
         </Model>
       ) : gameComplete && endingScenario === 'lose' ? (
         <Model>
-          <EndScreen turns={turns} onRetryClick={onRetryClick} endingScenario={endingScenario} />
+          <EndScreen
+            turns={turns}
+            onRetryClick={onRetryClick}
+            endingScenario={endingScenario}
+            handleBackButton={handleBackButton}
+          />
         </Model>
       ) : null}
     </div>
