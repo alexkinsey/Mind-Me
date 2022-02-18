@@ -44,8 +44,19 @@ const GameContainer = ({ cardsToDisplay, themeName }) => {
   const [chosenCard1, setChosenCard1] = useState({ id: null, label: null });
   const [chosenCard2, setChosenCard2] = useState({ id: null, label: null });
 
+  var startingMaxTurns = 1000
+  if (cardsToDisplay.length > 30) {
+    startingMaxTurns = 60
+  } else if (cardsToDisplay.length > 16) {
+    startingMaxTurns = 40
+  } else if (cardsToDisplay.length > 8) {
+    startingMaxTurns = 2
+  }
+
   const [gameComplete, setGameComplete] = useState(false);
   const [turns, setTurns] = useState(0);
+  const [maxTurns, setMaxTurns] = useState(startingMaxTurns);
+  const [endingScenario, setEndingScenario] = useState('');
 
   const [clickSound] = useSound(Pop);
   const [correctSound] = useSound(Correct);
@@ -55,13 +66,19 @@ const GameContainer = ({ cardsToDisplay, themeName }) => {
   var cardBack;
 
   useEffect(() => {
-    if (flippedCards.every((v) => v === true) && !gameComplete) {
-      console.log('complete');
+    if (flippedCards.every((v) => v === true) && !gameComplete && (maxTurns === 0 || turns < maxTurns)) {
+      console.log('win');
       setGameComplete(true);
+      setEndingScenario('win');
+
       winSound();
       setTimeout(function () {
         winSound();
       }, 680);
+    } else if (turns >= maxTurns && !gameComplete && cardsToDisplay.length > 8) {
+      console.log('lose');
+      setGameComplete(true);
+      setEndingScenario('lose');
     }
   });
 
@@ -128,20 +145,25 @@ const GameContainer = ({ cardsToDisplay, themeName }) => {
   return (
     <div>
       <h2>{themeName}</h2>
-      <p>Turns: {turns}</p>
+      <p>
+        Turns: {turns}/{maxTurns}
+      </p>
       <CardContainer
         cardsToDisplay={cardsToDisplay}
         cardBack={cardBack}
         flippedCards={flippedCards}
         onCardClick={onCardClick}
       />
-
-      {gameComplete ? (
+      {gameComplete && endingScenario === 'win' ? (
         <Model>
           <Confetti width={width} height={height} gravity={0.25} numberOfPieces={400} />
-          <EndScreen turns={turns} onRetryClick={onRetryClick} />
+          <EndScreen turns={turns} onRetryClick={onRetryClick} endingScenario={endingScenario} />
         </Model>
-      ) : null}
+      ) : gameComplete && endingScenario === 'lose' ? (
+        <Model>
+          <EndScreen turns={turns} onRetryClick={onRetryClick} endingScenario={endingScenario}/>
+        </Model>
+      ): null}
     </div>
   );
 };

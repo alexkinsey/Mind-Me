@@ -10,8 +10,8 @@ const Wrapper = styled.div`
   background: rgba(0, 0, 0, 0.3);
 
   backdrop-filter: blur(33px);
-  -webkit-box-shadow: 0px 20px 20px 5px rgba(0,0,0,0.5);
-  box-shadow: 0px 20px 20px 5px rgba(0,0,0,0.5);
+  -webkit-box-shadow: 0px 20px 20px 5px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 20px 20px 5px rgba(0, 0, 0, 0.5);
 
   text-align: center;
 `;
@@ -19,7 +19,7 @@ const Wrapper = styled.div`
 const ButtonContainer = styled.div`
   display: flex;
   justify-content: space-around;
-`
+`;
 
 const NewGameButton = styled.button`
   background: var(--accent);
@@ -41,11 +41,18 @@ const NewGameButton = styled.button`
   }
 `;
 
-const EndScreen = ({ turns, onRetryClick }) => {
+const EndScreen = ({ turns, onRetryClick, endingScenario }) => {
+  var endingMessage;
+  if (endingScenario === 'win') {
+    endingMessage = 'Congratulations!';
+  } else if (endingScenario === 'lose') {
+    endingMessage = "Your memory isn't the best, try again?";
+  }
+
   return (
     <Wrapper>
-      <h1>Congratulations!</h1>
-      <h3>You completed the puzzle in {turns} turns.</h3>
+      <h1>{endingMessage}</h1>
+      {endingScenario === 'win' ? <h3>You completed the puzzle in {turns} turns.</h3> : null}
       <ButtonContainer>
         <NewGameButton onClick={() => window.location.reload(false)}>New game</NewGameButton>
         <NewGameButton onClick={() => onRetryClick()}>Retry</NewGameButton>
