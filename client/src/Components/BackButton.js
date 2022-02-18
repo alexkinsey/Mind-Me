@@ -18,10 +18,10 @@ const StyledBackButton = styled.button`
 
 
 
-const BackButton = () => {
+const BackButton = (handleBackButton) => {
   return (
     <div>
-     <StyledBackButton>Back</StyledBackButton>
+     <StyledBackButton onClick={() => window.location.reload(false)}>Back</StyledBackButton>
       </div>
   );
 };

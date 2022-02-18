@@ -31,7 +31,7 @@ justify-content: center;
 
 
 
-const DifficultyLevelsButton = ({handleDifficultyButton, difficulty}) => {
+const DifficultyLevelsButton = ({handleDifficultyButton, difficulty, }) => {
   return (
     <DifficultyButtonContainer>
     <div>

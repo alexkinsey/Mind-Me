@@ -10,14 +10,14 @@ const Wrapper = styled.div`
   align-items: center;
 `;
 
-const DifficultyLevelContainer = ({ handleDifficultyButton }) => {
+const DifficultyLevelContainer = ({ handleDifficultyButton, handleBackButton }) => {
   return (
     <Wrapper>
       <DifficultyLevelsButton handleDifficultyButton={handleDifficultyButton} difficulty={'Easy'} />
       <DifficultyLevelsButton handleDifficultyButton={handleDifficultyButton} difficulty={'Medium'} />
       <DifficultyLevelsButton handleDifficultyButton={handleDifficultyButton} difficulty={'Hard'} />
       <DifficultyLevelsButton handleDifficultyButton={handleDifficultyButton} difficulty={'Too hot to handle!'} />
-      <BackButton>Back</BackButton>
+      <BackButton handleBackButton={handleBackButton}>Back</BackButton>
     </Wrapper>
   );
 };
