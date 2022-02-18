@@ -1,7 +1,7 @@
-import GameContainer from "../Containers/GameContainer";
-import MainMenuButton from "./MainMenuButton";
-import MindMe from "../MindMe";
-import styled from 'styled-components'
+import GameContainer from '../Containers/GameContainer';
+import MainMenuButton from './MainMenuButton';
+import MindMe from '../MindMe';
+import styled from 'styled-components';
 
 const StyledBackButton = styled.button`
 background-color: salmon;
@@ -26,14 +26,11 @@ margin-top: 15px;
 }
 `;
 
-
-
-
-const BackButton = (handleBackButton) => {
+const BackButton = ({handleBackButton}) => {
   return (
     <div>
-     <StyledBackButton onClick={() => window.location.reload(false)}>Back</StyledBackButton>
-      </div>
+      <StyledBackButton onClick={() => handleBackButton()}>Back</StyledBackButton>
+    </div>
   );
 };
 
