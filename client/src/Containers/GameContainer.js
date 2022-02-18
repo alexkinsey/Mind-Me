@@ -159,10 +159,12 @@ const GameContainer = ({ cardsToDisplay, themeName, handleBackButton }) => {
   return (
     <div>
       <BackButtonContainer>
-        <BackButton size={'small'} handleBackButton={handleBackButton} />
+        {gameComplete ? null : <BackButton size={'small'} handleBackButton={handleBackButton} />}
       </BackButtonContainer>
 
-      <TurnsLeftContainer>{maxTurns > 0 ? <TurnsLeft turns={turns} maxTurns={maxTurns} /> : null}</TurnsLeftContainer>
+      <TurnsLeftContainer>
+        {maxTurns > 0 && !gameComplete ? <TurnsLeft turns={turns} maxTurns={maxTurns} /> : null}
+      </TurnsLeftContainer>
 
       <CardContainer
         cardsToDisplay={cardsToDisplay}

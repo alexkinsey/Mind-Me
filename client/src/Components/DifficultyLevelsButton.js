@@ -3,13 +3,13 @@ import PrimaryButton from '../Styles/Button.style';
 const DifficultyLevelsButton = ({ handleDifficultyButton, difficulty }) => {
   var highlightColour;
   if (difficulty === 'Easy') {
-    highlightColour = 'springGreen';
+    highlightColour = 'MediumSeaGreen';
   } else if (difficulty === 'Medium') {
-    highlightColour = 'gold';
+    highlightColour = 'Orange';
   } else if (difficulty === 'Hard') {
-    highlightColour = 'orange';
+    highlightColour = 'Red';
   } else {
-    highlightColour = 'tomato';
+    highlightColour = 'Indigo';
   }
 
   return (

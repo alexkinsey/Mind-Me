@@ -3,7 +3,7 @@ import PrimaryButton from "../Styles/Button.style";
 const ThemeButton = ({ theme, handleThemeButton }) => {
   var highlightColour;
   if (theme === 'Animals') {
-    highlightColour = 'orange';
+    highlightColour = 'DarkOrange';
   } else if (theme === 'Celebs') {
     highlightColour = 'MediumSeaGreen';
   } else if (theme === 'Locations') {
