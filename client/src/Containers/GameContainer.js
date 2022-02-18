@@ -15,9 +15,11 @@ import cardBackGreen from '../Images/CardGreen.jpg';
 import cardBackOrng from '../Images/CardOrng.jpg';
 import cardBackRed from '../Images/CardRed.jpg';
 
+// Sounds
 import Pop from '../Sounds/pop.mp3';
 import Correct from '../Sounds/success.mp3';
 import Incorrect from '../Sounds/incorrect.mp3';
+import Win from '../Sounds/win.mp3';
 
 // Styles
 const Model = styled.div`
@@ -42,19 +44,24 @@ const GameContainer = ({ cardsToDisplay, themeName }) => {
   const [chosenCard1, setChosenCard1] = useState({ id: null, label: null });
   const [chosenCard2, setChosenCard2] = useState({ id: null, label: null });
 
-  const [gameComplete, setGameComplete] = useState(true);
+  const [gameComplete, setGameComplete] = useState(false);
   const [turns, setTurns] = useState(0);
 
   const [clickSound] = useSound(Pop);
   const [correctSound] = useSound(Correct);
   const [incorrectSound] = useSound(Incorrect);
+  const [winSound] = useSound(Win);
 
   var cardBack;
 
   useEffect(() => {
-    if (flippedCards.every((v) => v === true)) {
+    if (flippedCards.every((v) => v === true) && !gameComplete) {
       console.log('complete');
       setGameComplete(true);
+      winSound();
+      setTimeout(function () {
+        winSound();
+      }, 680);
     }
   });
 
@@ -63,7 +70,7 @@ const GameContainer = ({ cardsToDisplay, themeName }) => {
       if (chosenCard1.label === chosenCard2.label) {
         setChosenCard2({ id: null, label: null });
         setChosenCard1({ id: null, label: null });
-        
+
         setTimeout(function () {
           correctSound();
         }, 680);
