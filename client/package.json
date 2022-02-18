@@ -9,9 +9,12 @@
     "array-shuffle": "^3.0.0",
     "react": "^17.0.2",
     "react-card-flip": "^1.1.5",
+    "react-confetti": "^6.0.1",
     "react-dom": "^17.0.2",
     "react-scripts": "5.0.0",
+    "react-use": "^17.3.2",
     "styled-components": "^5.3.3",
+    "use-sound": "^4.0.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

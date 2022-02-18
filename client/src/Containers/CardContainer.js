@@ -13,7 +13,7 @@ const Grid = styled.div`
 `
 ;
 
-const CardContainer = ({ cardsToDisplay, flippedCards, onCardClick }) => {
+const CardContainer = ({ cardsToDisplay, cardBack, flippedCards, onCardClick }) => {
   var cardId = -1;
   const cardsNode = cardsToDisplay.map((card) => {
     cardId = cardId + 1;
@@ -23,6 +23,7 @@ const CardContainer = ({ cardsToDisplay, flippedCards, onCardClick }) => {
         id={cardId}
         isFlipped={flippedCards[cardId]}
         cardImg={card.link}
+        cardBack={cardBack}
         cardLabel={card.label}
         onCardClick={onCardClick}
       />

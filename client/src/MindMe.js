@@ -2,19 +2,24 @@ import { useState } from 'react';
 import arrayShuffle from 'array-shuffle';
 import styled from 'styled-components';
 
-import { GlobalStyle } from './GlobalStyle';
-
+// Components
 import GameContainer from './Containers/GameContainer';
 import ThemeButtonContainer from './Containers/ThemeButtonContainer';
 import DifficultyLevelContainer from './Containers/DifficultyLevelContainer';
 
+// Styles
+import { GlobalStyle } from './GlobalStyle';
+
 const Wrapper = styled.div`
-display: grid;
-grid-template-columns: 1fr;
-grid-template-row: 1fr 1fr;
-gap: 10px
-   `;
-const grid
+  width: var(--maxWidth);
+  margin: 0 auto;
+
+  padding-top: 1em;
+
+  h1 {
+    margin-bottom: 1em;
+  }
+`;
 
 const MindMe = () => {
   const [themeName, setThemeName] = useState('');
@@ -47,6 +52,12 @@ const MindMe = () => {
 
     setMenuChoice('Game');
   };
+  const handleBackButton = () => {
+    if(menuChoice==="Difficulty"){
+      setMenuChoice('Theme');
+    }
+  };
+  
 
   return (
     <Wrapper>
@@ -54,7 +65,7 @@ const MindMe = () => {
       {menuChoice === 'Theme' ? (
         <ThemeButtonContainer handleThemeButton={handleThemeButton} />
       ) : menuChoice === 'Difficulty' ? (
-        <DifficultyLevelContainer handleDifficultyButton={handleDifficultyButton} />
+        <DifficultyLevelContainer handleDifficultyButton={handleDifficultyButton} handleBackButton={handleBackButton} />
       ) : menuChoice === 'Game' ? (
         <GameContainer cardsToDisplay={cardsToDisplay} themeName={themeName} />
       ) : null}
@@ -64,4 +75,3 @@ const MindMe = () => {
 };
 
 export default MindMe;
-
