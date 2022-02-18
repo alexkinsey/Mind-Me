@@ -1,8 +1,5 @@
-import React, { useState } from 'react';
 import styled from 'styled-components';
 import ReactCardFlip from 'react-card-flip';
-
-import cardBack from '../Images/Back.jpg';
 
 const CardBackground = styled.div`
   -webkit-box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.25);
@@ -21,23 +18,18 @@ const CardBackground = styled.div`
   }
 `;
 
-const Card = ({ id, cardImg, cardLabel, isFlipped, onCardClick }) => {
-  // const onCardClick = () => {
-  //   if (chosenCard.id === null) {
-  //     setChosenCard({ id: id, label: cardLabel });
-  //     flippedCards[id] = !flippedCards[id];
-  //     setFlippedCards(flippedCards);
-  //   } else {
-  //     if (chosenCard.label === cardLabel) {
-  //       flippedCards[id] = !flippedCards[id];
-  //     } else {
-  //       flippedCards[chosenCard.id] = false;
-  //     }
-  //     setFlippedCards(flippedCards);
-  //     setChosenCard({ id: null, label: null });
-  //   }
-  // };
+const CardLabel = styled.p`
+  text-align: center;
+  color: var(--white);
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, -50%);
 
+  text-shadow: 0 0 8px rgba(0,0,0,1);
+`;
+
+const Card = ({ cardBack, id, cardImg, cardLabel, isFlipped, onCardClick }) => {
   return (
     <div>
       <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
@@ -46,6 +38,7 @@ const Card = ({ id, cardImg, cardLabel, isFlipped, onCardClick }) => {
         </CardBackground>
 
         <CardBackground>
+          <CardLabel>{cardLabel}</CardLabel>
           <img src={cardImg} alt={cardLabel} onClick={() => onCardClick(id, cardLabel)} />
         </CardBackground>
       </ReactCardFlip>

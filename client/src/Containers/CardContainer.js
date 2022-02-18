@@ -5,13 +5,12 @@ import Card from '../Components/Card';
 
 const Grid = styled.div`
 display: flex;  
-flex-wrap: wrap;  
-width: 400px;  
-height: 300px;
-`
-;
+flex-wrap: wrap;
+gap: 1em;
+width: var(--maxWidth);
+`;
 
-const CardContainer = ({ cardsToDisplay, flippedCards, onCardClick }) => {
+const CardContainer = ({ cardsToDisplay, cardBack, flippedCards, onCardClick }) => {
   var cardId = -1;
   const cardsNode = cardsToDisplay.map((card) => {
     cardId = cardId + 1;
@@ -21,6 +20,7 @@ const CardContainer = ({ cardsToDisplay, flippedCards, onCardClick }) => {
         id={cardId}
         isFlipped={flippedCards[cardId]}
         cardImg={card.link}
+        cardBack={cardBack}
         cardLabel={card.label}
         onCardClick={onCardClick}
       />

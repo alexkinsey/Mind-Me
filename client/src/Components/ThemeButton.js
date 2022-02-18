@@ -1,9 +1,7 @@
-import styled from "styled-components";
-
+import styled from 'styled-components';
 
 const StyledThemeButton = styled.button`
-
-background-color: springGreen;
+  background-color: springGreen;
   color: black;
   font-size: 20px;
   border-radius: 10px;
@@ -33,18 +31,7 @@ justify-content: center;
 
 
 const ThemeButton = ({ theme, handleThemeButton }) => {
-  return (
-  
-  <ThemeButtonContainer>
-    <div>
-      <StyledThemeButton 
-      onClick={() => handleThemeButton(theme)}>{theme}
-      </StyledThemeButton>
-    </div> 
-  </ThemeButtonContainer>
-
-    
-  );
+  return <StyledThemeButton onClick={() => handleThemeButton(theme)}>{theme}</StyledThemeButton>;
 };
 
 export default ThemeButton;
