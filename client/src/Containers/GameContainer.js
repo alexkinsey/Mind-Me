@@ -44,13 +44,13 @@ const GameContainer = ({ cardsToDisplay, themeName }) => {
   const [chosenCard1, setChosenCard1] = useState({ id: null, label: null });
   const [chosenCard2, setChosenCard2] = useState({ id: null, label: null });
 
-  var startingMaxTurns = 1000
+  var startingMaxTurns = 1000;
   if (cardsToDisplay.length > 30) {
-    startingMaxTurns = 60
+    startingMaxTurns = 60;
   } else if (cardsToDisplay.length > 16) {
-    startingMaxTurns = 40
+    startingMaxTurns = 40;
   } else if (cardsToDisplay.length > 8) {
-    startingMaxTurns = 2
+    startingMaxTurns = 30;
   }
 
   const [gameComplete, setGameComplete] = useState(false);
@@ -130,6 +130,7 @@ const GameContainer = ({ cardsToDisplay, themeName }) => {
     setFlippedCards(new Array(cardsToDisplay.length).fill(false));
     setTurns(0);
     setGameComplete(false);
+    setEndingScenario('');
   };
 
   if (themeName === 'Animals') {
@@ -145,9 +146,12 @@ const GameContainer = ({ cardsToDisplay, themeName }) => {
   return (
     <div>
       <h2>{themeName}</h2>
-      <p>
-        Turns: {turns}/{maxTurns}
-      </p>
+      {maxTurns < 100 ? (
+        <p>
+          Turns: {turns}/{maxTurns}
+        </p>
+      ) : null}
+
       <CardContainer
         cardsToDisplay={cardsToDisplay}
         cardBack={cardBack}
@@ -161,9 +165,9 @@ const GameContainer = ({ cardsToDisplay, themeName }) => {
         </Model>
       ) : gameComplete && endingScenario === 'lose' ? (
         <Model>
-          <EndScreen turns={turns} onRetryClick={onRetryClick} endingScenario={endingScenario}/>
+          <EndScreen turns={turns} onRetryClick={onRetryClick} endingScenario={endingScenario} />
         </Model>
-      ): null}
+      ) : null}
     </div>
   );
 };
