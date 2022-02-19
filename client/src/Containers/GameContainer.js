@@ -36,7 +36,7 @@ const Model = styled.div`
 
   div {
     margin: auto;
-    transform: translate(0%, 75%);
+    transform: translate(0%, 50%);
   }
 `;
 const BackButtonContainer = styled.div`
@@ -59,19 +59,17 @@ const GameContainer = ({ cardsToDisplay, themeName, handleBackButton }) => {
   const [chosenCard1, setChosenCard1] = useState({ id: null, label: null });
   const [chosenCard2, setChosenCard2] = useState({ id: null, label: null });
 
-  var startingMaxTurns = 0;
-  if (cardsToDisplay.length > 30) {
-    startingMaxTurns = 60;
-  } else if (cardsToDisplay.length > 16) {
-    startingMaxTurns = 40;
-  } else if (cardsToDisplay.length > 8) {
-    startingMaxTurns = 30;
-  }
-
   const [gameComplete, setGameComplete] = useState(false);
   const [turns, setTurns] = useState(0);
-  const [maxTurns, setMaxTurns] = useState(startingMaxTurns);
   const [endingScenario, setEndingScenario] = useState('');
+  let maxTurns = 0;
+  if (cardsToDisplay.length > 30) {
+    maxTurns = 60;
+  } else if (cardsToDisplay.length > 16) {
+    maxTurns = 40;
+  } else if (cardsToDisplay.length > 8) {
+    maxTurns = 30;
+  }
 
   const [clickSound] = useSound(Pop);
   const [correctSound] = useSound(Correct);
@@ -80,16 +78,14 @@ const GameContainer = ({ cardsToDisplay, themeName, handleBackButton }) => {
 
   useEffect(() => {
     if (flippedCards.every((v) => v === true) && !gameComplete && (maxTurns === 0 || turns < maxTurns)) {
-      console.log('win');
-      setGameComplete(true);
-      setEndingScenario('win');
-
-      winSound();
       setTimeout(function () {
-        winSound();
+        setGameComplete(true);
+        setEndingScenario('win');
+        setTimeout(function () {
+          winSound();
+        }, 300);
       }, 680);
     } else if (turns >= maxTurns && !gameComplete && cardsToDisplay.length > 8) {
-      console.log('lose');
       setGameComplete(true);
       setEndingScenario('lose');
     }
@@ -177,15 +173,15 @@ const GameContainer = ({ cardsToDisplay, themeName, handleBackButton }) => {
       />
 
       {gameComplete && endingScenario === 'win' ? (
-          <Model>
-            <Confetti width={width} height={height} gravity={0.25} numberOfPieces={400} />
-            <EndScreen
-              turns={turns}
-              onRetryClick={onRetryClick}
-              endingScenario={endingScenario}
-              handleBackButton={handleBackButton}
-            />
-          </Model>
+        <Model>
+          <Confetti width={width} height={height} gravity={0.25} numberOfPieces={400} />
+          <EndScreen
+            turns={turns}
+            onRetryClick={onRetryClick}
+            endingScenario={endingScenario}
+            handleBackButton={handleBackButton}
+          />
+        </Model>
       ) : gameComplete && endingScenario === 'lose' ? (
         <Model>
           <EndScreen
