@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import ThemeButton from '../Components/ThemeButton';
 
 // Styles
+import AnimationFadeUp from '../Styles/Animations';
+
 const Wrapper = styled.div`
   display: flex;
   gap: 2em;
@@ -14,14 +16,25 @@ const Wrapper = styled.div`
 const ThemeButtonContainer = ({ handleThemeButton }) => {
   return (
     <Wrapper>
-      <p>
-        Welcome to mind me! A memory testing game. Choose your favourite topic and match the cards in few turns as
-        possible
-      </p>
-      <ThemeButton theme={'Animals'} handleThemeButton={handleThemeButton} />
-      <ThemeButton theme={'Celebs'} handleThemeButton={handleThemeButton} />
-      <ThemeButton theme={'Locations'} handleThemeButton={handleThemeButton} />
-      <ThemeButton theme={'Food'} handleThemeButton={handleThemeButton} />
+      <AnimationFadeUp animationDelay={'100ms'}>
+        <p>
+          Welcome to mind me! A memory testing game. Choose your favourite topic and match the cards in few turns as
+          possible
+        </p>
+      </AnimationFadeUp>
+
+      <AnimationFadeUp animationDelay={'1s'}>
+        <ThemeButton theme={'Animals'} handleThemeButton={handleThemeButton} />
+      </AnimationFadeUp>
+      <AnimationFadeUp animationDelay={'1.1s'}>
+        <ThemeButton theme={'Celebs'} handleThemeButton={handleThemeButton} />
+      </AnimationFadeUp>
+      <AnimationFadeUp animationDelay={'1.2s'}>
+        <ThemeButton theme={'Locations'} handleThemeButton={handleThemeButton} />
+      </AnimationFadeUp>
+      <AnimationFadeUp animationDelay={'1.3s'}>
+        <ThemeButton theme={'Food'} handleThemeButton={handleThemeButton} />
+      </AnimationFadeUp>
     </Wrapper>
   );
 };
