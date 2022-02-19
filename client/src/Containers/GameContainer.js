@@ -23,6 +23,8 @@ import Win from '../Sounds/win.mp3';
 import TurnsLeft from '../Components/TurnsLeft';
 
 // Styles
+import { AnimationFadeIn } from '../Styles/Animations';
+
 const Model = styled.div`
   z-index: auto;
   position: fixed;
@@ -158,13 +160,15 @@ const GameContainer = ({ cardsToDisplay, themeName, handleBackButton }) => {
 
   return (
     <div>
-      <BackButtonContainer>
-        {gameComplete ? null : <BackButton size={'small'} handleBackButton={handleBackButton} />}
-      </BackButtonContainer>
+      <AnimationFadeIn>
+        <BackButtonContainer>
+          {gameComplete ? null : <BackButton size={'small'} handleBackButton={handleBackButton} />}
+        </BackButtonContainer>
 
-      <TurnsLeftContainer>
-        {maxTurns > 0 && !gameComplete ? <TurnsLeft turns={turns} maxTurns={maxTurns} /> : null}
-      </TurnsLeftContainer>
+        <TurnsLeftContainer>
+          {maxTurns > 0 && !gameComplete ? <TurnsLeft turns={turns} maxTurns={maxTurns} /> : null}
+        </TurnsLeftContainer>
+      </AnimationFadeIn>
 
       <CardContainer
         cardsToDisplay={cardsToDisplay}

@@ -5,7 +5,7 @@ import BackButton from '../Components/BackButton';
 import DifficultyLevelsButton from '../Components/DifficultyLevelsButton';
 
 // Styles
-import { AnimationFadeUp } from '../Styles/Animations';
+import { AnimationFadeUp, AnimationFadeIn } from '../Styles/Animations';
 
 const Wrapper = styled.div`
   display: flex;
@@ -17,9 +17,9 @@ const Wrapper = styled.div`
 const DifficultyLevelContainer = ({ handleDifficultyButton, handleBackButton }) => {
   return (
     <Wrapper>
-      <AnimationFadeUp animationDelay={'0s'}>
+      <AnimationFadeIn animationDelay={'0s'}>
         <p>Choose a difficulty level and don't run out of turns!</p>
-      </AnimationFadeUp>
+      </AnimationFadeIn>
       <AnimationFadeUp animationDelay={'100ms'}>
         <DifficultyLevelsButton handleDifficultyButton={handleDifficultyButton} difficulty={'Easy'} />
       </AnimationFadeUp>

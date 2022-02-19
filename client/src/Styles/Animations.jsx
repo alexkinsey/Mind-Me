@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const AnimationFadeUp = styled.div`
   animation: fade-up 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-  animation-delay: ${(props) => props.animationDelay};
+  animation-delay: ${(props) => (props.animationDelay ? props.animationDelay : '0ms')};
 
   @keyframes fade-up {
     0% {
@@ -11,6 +11,20 @@ export const AnimationFadeUp = styled.div`
     }
     100% {
       transform: translateY(0px);
+      opacity: 1;
+    }
+  }
+`;
+
+export const AnimationFadeIn = styled.div`
+  animation: fade-in 1s ease-in both;
+  animation-delay: ${(props) => (props.animationDelay ? props.animationDelay : '0ms')};
+
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
       opacity: 1;
     }
   }
