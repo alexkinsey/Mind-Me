@@ -5,6 +5,8 @@ import BackButton from '../Components/BackButton';
 import DifficultyLevelsButton from '../Components/DifficultyLevelsButton';
 
 // Styles
+import AnimationFadeUp from '../Styles/Animations';
+
 const Wrapper = styled.div`
   display: flex;
   gap: 2em;
@@ -15,12 +17,25 @@ const Wrapper = styled.div`
 const DifficultyLevelContainer = ({ handleDifficultyButton, handleBackButton }) => {
   return (
     <Wrapper>
-      <p>Choose a difficulty level and don't run out of turns!</p>
-      <DifficultyLevelsButton handleDifficultyButton={handleDifficultyButton} difficulty={'Easy'} />
-      <DifficultyLevelsButton handleDifficultyButton={handleDifficultyButton} difficulty={'Medium'} />
-      <DifficultyLevelsButton handleDifficultyButton={handleDifficultyButton} difficulty={'Hard'} />
-      <DifficultyLevelsButton handleDifficultyButton={handleDifficultyButton} difficulty={'Too hot to handle!'} />
-      <BackButton handleBackButton={handleBackButton} />
+      <AnimationFadeUp animationDelay={'0s'}>
+        <p>Choose a difficulty level and don't run out of turns!</p>
+      </AnimationFadeUp>
+      <AnimationFadeUp animationDelay={'100ms'}>
+        <DifficultyLevelsButton handleDifficultyButton={handleDifficultyButton} difficulty={'Easy'} />
+      </AnimationFadeUp>
+
+      <AnimationFadeUp animationDelay={'200ms'}>
+        <DifficultyLevelsButton handleDifficultyButton={handleDifficultyButton} difficulty={'Medium'} />
+      </AnimationFadeUp>
+      <AnimationFadeUp animationDelay={'300ms'}>
+        <DifficultyLevelsButton handleDifficultyButton={handleDifficultyButton} difficulty={'Hard'} />
+      </AnimationFadeUp>
+      <AnimationFadeUp animationDelay={'400ms'}>
+        <DifficultyLevelsButton handleDifficultyButton={handleDifficultyButton} difficulty={'Too hot to handle!'} />
+      </AnimationFadeUp>
+      <AnimationFadeUp animationDelay={'1s'}>
+        <BackButton handleBackButton={handleBackButton} />
+      </AnimationFadeUp>
     </Wrapper>
   );
 };
