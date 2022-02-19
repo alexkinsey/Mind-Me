@@ -31,8 +31,8 @@ const CardLabel = styled.span`
 
 const Card = ({ cardBack, id, cardImg, cardLabel, isFlipped, onCardClick }) => {
   return (
-    <div>
-      <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
+    <>
+      <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal" className="CardFlip">
         <CardBackground>
           <img src={cardBack} alt={cardLabel} onClick={() => onCardClick(id, cardLabel)} />
         </CardBackground>
@@ -42,7 +42,7 @@ const Card = ({ cardBack, id, cardImg, cardLabel, isFlipped, onCardClick }) => {
           <img src={cardImg} alt={cardLabel} onClick={() => onCardClick(id, cardLabel)} />
         </CardBackground>
       </ReactCardFlip>
-    </div>
+    </>
   );
 };
 
