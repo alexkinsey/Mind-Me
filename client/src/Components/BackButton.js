@@ -21,11 +21,9 @@ const StyledBackButton = styled(PrimaryButton)`
 
 const BackButton = ({ size, handleBackButton }) => {
   return (
-    <div>
       <StyledBackButton size={size} onClick={() => handleBackButton()}>
         &#x2190;
       </StyledBackButton>
-    </div>
   );
 };
 
