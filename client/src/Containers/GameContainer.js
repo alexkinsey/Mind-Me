@@ -40,14 +40,14 @@ const Model = styled.div`
 const BackButtonContainer = styled.div`
   z-index: 100;
   position: absolute;
-  top: 2.5rem;
+  top: 1rem;
   left: 1rem;
 `;
 const TurnsLeftContainer = styled.div`
   z-index: 100;
   position: absolute;
   right: 1rem;
-  top: 1.8rem;
+  top: 0.5rem;
 `;
 
 const GameContainer = ({ cardsToDisplay, themeName, handleBackButton }) => {
