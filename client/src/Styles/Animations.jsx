@@ -17,7 +17,7 @@ export const AnimationFadeUp = styled.div`
 `;
 
 export const AnimationFadeIn = styled.div`
-  animation: fade-in 1s ease-in both;
+  animation: fade-in ${(props) => (props.animationTime ? props.animationTime : '1s')} ease-in both;
   animation-delay: ${(props) => (props.animationDelay ? props.animationDelay : '0ms')};
 
   @keyframes fade-in {

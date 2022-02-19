@@ -78,8 +78,6 @@ const GameContainer = ({ cardsToDisplay, themeName, handleBackButton }) => {
   const [incorrectSound] = useSound(Incorrect);
   const [winSound] = useSound(Win);
 
-  var cardBack;
-
   useEffect(() => {
     if (flippedCards.every((v) => v === true) && !gameComplete && (maxTurns === 0 || turns < maxTurns)) {
       console.log('win');
@@ -148,6 +146,7 @@ const GameContainer = ({ cardsToDisplay, themeName, handleBackButton }) => {
     setEndingScenario('');
   };
 
+  let cardBack;
   if (themeName === 'Animals') {
     cardBack = cardBackOrng;
   } else if (themeName === 'Food') {
@@ -178,15 +177,15 @@ const GameContainer = ({ cardsToDisplay, themeName, handleBackButton }) => {
       />
 
       {gameComplete && endingScenario === 'win' ? (
-        <Model>
-          <Confetti width={width} height={height} gravity={0.25} numberOfPieces={400} />
-          <EndScreen
-            turns={turns}
-            onRetryClick={onRetryClick}
-            endingScenario={endingScenario}
-            handleBackButton={handleBackButton}
-          />
-        </Model>
+          <Model>
+            <Confetti width={width} height={height} gravity={0.25} numberOfPieces={400} />
+            <EndScreen
+              turns={turns}
+              onRetryClick={onRetryClick}
+              endingScenario={endingScenario}
+              handleBackButton={handleBackButton}
+            />
+          </Model>
       ) : gameComplete && endingScenario === 'lose' ? (
         <Model>
           <EndScreen
