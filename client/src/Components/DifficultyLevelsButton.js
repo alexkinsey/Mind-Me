@@ -1,4 +1,4 @@
-import PrimaryButton from '../Styles/Button.style';
+import { PrimaryButton } from '../Styles/Button.style';
 
 const DifficultyLevelsButton = ({ handleDifficultyButton, difficulty }) => {
   var highlightColour;

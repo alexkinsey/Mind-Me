@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import arrayShuffle from 'array-shuffle';
 
 // Components
-import PrimaryButton from '../Styles/Button.style';
+import { PrimaryButton } from '../Styles/Button.style';
 
 // Styles
 const Wrapper = styled.div`

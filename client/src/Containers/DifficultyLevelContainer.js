@@ -5,7 +5,7 @@ import BackButton from '../Components/BackButton';
 import DifficultyLevelsButton from '../Components/DifficultyLevelsButton';
 
 // Styles
-import AnimationFadeUp from '../Styles/Animations';
+import { AnimationFadeUp } from '../Styles/Animations';
 
 const Wrapper = styled.div`
   display: flex;

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const PrimaryButton = styled.button`
+export const PrimaryButton = styled.button`
   background-color: transparent;
   color: white;
 
@@ -23,5 +23,3 @@ const PrimaryButton = styled.button`
     background-color: rgba(0, 0, 0, 0.3);
   }
 `;
-
-export default PrimaryButton

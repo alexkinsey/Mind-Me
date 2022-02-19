@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import ReactCardFlip from 'react-card-flip';
 
 // Styles
-import AnimationFadeUp from '../Styles/Animations';
+import { AnimationFadeUp } from '../Styles/Animations';
 
 const CardBackground = styled.div`
   -webkit-box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.25);
@@ -33,7 +33,7 @@ const CardLabel = styled.span`
 
 const Card = ({ cardBack, id, cardImg, cardLabel, isFlipped, onCardClick }) => {
   return (
-    <AnimationFadeUp animationDelay={(id * 50) + 'ms'}>
+    <AnimationFadeUp animationDelay={id * 50 + 'ms'}>
       <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal" className="CardFlip">
         <CardBackground>
           <img src={cardBack} alt={cardLabel} onClick={() => onCardClick(id, cardLabel)} />

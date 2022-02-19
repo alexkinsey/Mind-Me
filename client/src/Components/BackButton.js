@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 // Components
-import PrimaryButton from '../Styles/Button.style';
+import { PrimaryButton } from '../Styles/Button.style';
 
 // Styles
 const StyledBackButton = styled(PrimaryButton)`
@@ -21,9 +21,9 @@ const StyledBackButton = styled(PrimaryButton)`
 
 const BackButton = ({ size, handleBackButton }) => {
   return (
-      <StyledBackButton size={size} onClick={() => handleBackButton()}>
-        &#x2190;
-      </StyledBackButton>
+    <StyledBackButton size={size} onClick={() => handleBackButton()}>
+      &#x2190;
+    </StyledBackButton>
   );
 };
 

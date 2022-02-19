@@ -1,4 +1,4 @@
-import PrimaryButton from "../Styles/Button.style";
+import { PrimaryButton } from '../Styles/Button.style';
 
 const ThemeButton = ({ theme, handleThemeButton }) => {
   var highlightColour;

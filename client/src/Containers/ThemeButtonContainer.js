@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import ThemeButton from '../Components/ThemeButton';
 
 // Styles
-import AnimationFadeUp from '../Styles/Animations';
+import { AnimationFadeUp } from '../Styles/Animations';
 
 const Wrapper = styled.div`
   display: flex;
@@ -19,7 +19,7 @@ const ThemeButtonContainer = ({ handleThemeButton }) => {
       <AnimationFadeUp animationDelay={'100ms'}>
         <p>
           Welcome to mind me! A memory testing game. Choose your favourite topic and match the cards in few turns as
-          possible
+          possible.
         </p>
       </AnimationFadeUp>
 
