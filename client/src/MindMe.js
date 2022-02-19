@@ -14,17 +14,21 @@ const Wrapper = styled.div`
   margin: 0 auto;
 `;
 const Heading = styled.h1`
-  animation: myAnim 1s ease 0s 1 normal forwards;
+  font-size: ${(props) => (props.size === 'Game' ? '2rem' : 'null')};
+  animation: text-pop-up-top 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 
-  @keyframes myAnim {
+  @keyframes text-pop-up-top {
     0% {
-      transform: scale(0.5);
-      transform-origin: 50% 100%;
+      transform: translateY(20px);
+      opacity: 0;
+      transform-origin: 50% 50%;
+      text-shadow: none;
     }
-
     100% {
-      transform: scale(1);
-      transform-origin: 50% 100%;
+      transform: translateY(0px);
+      opacity: 1;
+      transform-origin: 50% 50%;
+      text-shadow:  0 20px 30px rgba(0, 0, 0, 0.6);
     }
   }
 `;
@@ -72,7 +76,7 @@ const MindMe = () => {
 
   return (
     <Wrapper>
-      <Heading>Mind Me</Heading>
+      <Heading size={menuChoice}>Mind Me</Heading>
       {menuChoice === 'Theme' ? (
         <ThemeButtonContainer handleThemeButton={handleThemeButton} />
       ) : menuChoice === 'Difficulty' ? (
