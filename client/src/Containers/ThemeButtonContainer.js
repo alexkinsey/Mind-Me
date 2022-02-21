@@ -11,29 +11,28 @@ const Wrapper = styled.div`
   gap: 2em;
   flex-direction: column;
   align-items: center;
+  text-align: center;
 `;
 
 const ThemeButtonContainer = ({ handleThemeButton }) => {
   return (
     <Wrapper>
       <AnimationFadeIn animationDelay={'100ms'}>
-        <p>
-          Welcome to mind me! A memory testing game. Choose your favourite topic and match the cards in few turns as
-          possible.
-        </p>
+        <p>Welcome to <b>Mind Me</b> - a memory testing game. Match the cards in as few turns as possible!</p>
+        <p>Please select a theme</p>
       </AnimationFadeIn>
 
       <AnimationFadeUp animationDelay={'1s'}>
-        <ThemeButton theme={'Animals'} handleThemeButton={handleThemeButton} />
+        <ThemeButton theme={'Animals'} highlightColour={'DarkOrange'} handleThemeButton={handleThemeButton} />
       </AnimationFadeUp>
       <AnimationFadeUp animationDelay={'1.1s'}>
-        <ThemeButton theme={'Celebs'} handleThemeButton={handleThemeButton} />
+        <ThemeButton theme={'Celebs'} highlightColour={'MediumSeaGreen'} handleThemeButton={handleThemeButton} />
       </AnimationFadeUp>
       <AnimationFadeUp animationDelay={'1.2s'}>
-        <ThemeButton theme={'Locations'} handleThemeButton={handleThemeButton} />
+        <ThemeButton theme={'Locations'} highlightColour={'DodgerBlue'} handleThemeButton={handleThemeButton} />
       </AnimationFadeUp>
       <AnimationFadeUp animationDelay={'1.3s'}>
-        <ThemeButton theme={'Food'} handleThemeButton={handleThemeButton} />
+        <ThemeButton theme={'Food'} highlightColour={'tomato'} handleThemeButton={handleThemeButton} />
       </AnimationFadeUp>
     </Wrapper>
   );

@@ -4,12 +4,12 @@ export const PrimaryButton = styled.button`
   background-color: transparent;
   color: white;
 
-  padding: 2rem 4rem;
-  width: 16em;
+  width: 14em;
+  height: 4.5em;
   border: 2px solid white;
-  border-radius: 10px;
+  border-radius: 0.5em;
 
-  font-size: 20px;
+  font-size: 1.25em;
   text-align: center;
   
   :hover {

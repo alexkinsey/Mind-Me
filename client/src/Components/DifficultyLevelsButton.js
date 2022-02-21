@@ -1,17 +1,6 @@
 import { PrimaryButton } from '../Styles/Button.style';
 
-const DifficultyLevelsButton = ({ handleDifficultyButton, difficulty }) => {
-  var highlightColour;
-  if (difficulty === 'Easy') {
-    highlightColour = 'MediumSeaGreen';
-  } else if (difficulty === 'Medium') {
-    highlightColour = 'Orange';
-  } else if (difficulty === 'Hard') {
-    highlightColour = 'Red';
-  } else {
-    highlightColour = 'Indigo';
-  }
-
+const DifficultyLevelsButton = ({ handleDifficultyButton, highlightColour, difficulty }) => {
   return (
     <PrimaryButton highlightColour={highlightColour} onClick={() => handleDifficultyButton(difficulty)}>
       {difficulty}

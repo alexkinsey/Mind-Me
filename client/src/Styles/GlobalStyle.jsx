@@ -35,7 +35,6 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
     display: flex;
     justify-content: center;
-    ${'' /* background-color: var(--darkGrey); */}
 
     background: linear-gradient(105deg,#4a1149,#860d3c,#1a3b7c,#0b224e);
     background-size: 250% 600%;
@@ -90,7 +89,5 @@ export const GlobalStyle = createGlobalStyle`
     a:hover {
       color: var(--accentLight);
       text-decoration: underline;
-    }
-  }
-  
+    } 
 `;

@@ -1,16 +1,6 @@
 import { PrimaryButton } from '../Styles/Button.style';
 
-const ThemeButton = ({ theme, handleThemeButton }) => {
-  var highlightColour;
-  if (theme === 'Animals') {
-    highlightColour = 'DarkOrange';
-  } else if (theme === 'Celebs') {
-    highlightColour = 'MediumSeaGreen';
-  } else if (theme === 'Locations') {
-    highlightColour = 'tomato';
-  } else {
-    highlightColour = 'DodgerBlue';
-  }
+const ThemeButton = ({ theme, highlightColour, handleThemeButton }) => {
   return (
     <PrimaryButton highlightColour={highlightColour} onClick={() => handleThemeButton(theme)}>
       {theme}

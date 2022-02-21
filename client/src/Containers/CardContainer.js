@@ -14,7 +14,7 @@ const Grid = styled.div`
 `;
 
 const CardContainer = ({ cardsToDisplay, cardBack, flippedCards, onCardClick }) => {
-  var cardId = -1;
+  let cardId = -1;
   const cardsNode = cardsToDisplay.map((card) => {
     cardId = cardId + 1;
     return (
@@ -30,7 +30,7 @@ const CardContainer = ({ cardsToDisplay, cardBack, flippedCards, onCardClick }) 
     );
   });
 
-  var numberOfColumns;
+  let numberOfColumns;
   if (cardsToDisplay.length > 30) {
     numberOfColumns = 9;
   } else if (cardsToDisplay.length > 16) {
