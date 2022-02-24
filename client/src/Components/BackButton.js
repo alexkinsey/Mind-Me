@@ -10,6 +10,7 @@ const StyledBackButton = styled(PrimaryButton)`
   padding: ${(props) => (props.size === 'small' ? '0.5rem 1rem 0.6rem 1rem' : '1rem 4rem 1.2rem 4rem')};
   font-weight: bold;
   width: auto;
+  height: auto;
   border-width: ${(props) => (props.size === 'small' ? '1.5px' : null)};
 
   &:hover {
