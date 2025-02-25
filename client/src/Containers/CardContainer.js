@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import styled from 'styled-components';
 
 // Components
@@ -13,31 +14,28 @@ const Grid = styled.div`
   justify-items: center;
 `;
 
-const CardContainer = ({ cardsToDisplay, cardBack, flippedCards, onCardClick }) => {
-  let cardId = -1;
-  const cardsNode = cardsToDisplay.map((card) => {
-    cardId = cardId + 1;
-    return (
+const CardContainer = ({
+  cardsToDisplay,
+  cardBack,
+  flippedCards,
+  onCardClick,
+}) => {
+  const cardsNode = useMemo(() => {
+    return cardsToDisplay.map((card, index) => (
       <Card
-        key={cardId}
-        id={cardId}
-        isFlipped={flippedCards[cardId]}
+        key={index}
+        id={index}
+        isFlipped={flippedCards[index]}
         cardImg={card.link}
         cardBack={cardBack}
         cardLabel={card.label}
         onCardClick={onCardClick}
       />
-    );
-  });
+    ));
+  }, [cardsToDisplay, flippedCards, cardBack, onCardClick]);
 
-  let numberOfColumns;
-  if (cardsToDisplay.length > 30) {
-    numberOfColumns = 9;
-  } else if (cardsToDisplay.length > 16) {
-    numberOfColumns = 8;
-  } else {
-    numberOfColumns = 4;
-  }
+  const numberOfColumns =
+    cardsToDisplay.length > 30 ? 9 : cardsToDisplay.length > 16 ? 8 : 4;
 
   return <Grid columnNumber={numberOfColumns}>{cardsNode}</Grid>;
 };

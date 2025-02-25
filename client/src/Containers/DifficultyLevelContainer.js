@@ -15,25 +15,31 @@ const Wrapper = styled.div`
   text-align: center;
 `;
 
-const DifficultyLevelContainer = ({ handleDifficultyButton, handleBackButton }) => {
+const difficultyLevels = [
+  { difficulty: 'Easy', color: 'MediumSeaGreen', delay: '100ms' },
+  { difficulty: 'Medium', color: 'Orange', delay: '200ms' },
+  { difficulty: 'Hard', color: 'Red', delay: '300ms' },
+  { difficulty: 'Too hot to handle!', color: 'Indigo', delay: '400ms' },
+];
+
+const DifficultyLevelContainer = ({
+  handleDifficultyButton,
+  handleBackButton,
+}) => {
   return (
     <Wrapper>
       <AnimationFadeIn animationDelay={'0s'}>
         <p>Choose a difficulty to begin</p>
       </AnimationFadeIn>
-      <AnimationFadeUp animationDelay={'100ms'}>
-        <DifficultyLevelsButton handleDifficultyButton={handleDifficultyButton} highlightColour={'MediumSeaGreen'} difficulty={'Easy'} />
-      </AnimationFadeUp>
-
-      <AnimationFadeUp animationDelay={'200ms'}>
-        <DifficultyLevelsButton handleDifficultyButton={handleDifficultyButton} highlightColour={'Orange'} difficulty={'Medium'} />
-      </AnimationFadeUp>
-      <AnimationFadeUp animationDelay={'300ms'}>
-        <DifficultyLevelsButton handleDifficultyButton={handleDifficultyButton} highlightColour={'Red'} difficulty={'Hard'} />
-      </AnimationFadeUp>
-      <AnimationFadeUp animationDelay={'400ms'}>
-        <DifficultyLevelsButton handleDifficultyButton={handleDifficultyButton} highlightColour={'Indigo'} difficulty={'Too hot to handle!'} />
-      </AnimationFadeUp>
+      {difficultyLevels.map(({ difficulty, color, delay }) => (
+        <AnimationFadeUp key={difficulty} animationDelay={delay}>
+          <DifficultyLevelsButton
+            handleDifficultyButton={handleDifficultyButton}
+            highlightColour={color}
+            difficulty={difficulty}
+          />
+        </AnimationFadeUp>
+      ))}
       <AnimationFadeUp animationDelay={'1s'}>
         <BackButton handleBackButton={handleBackButton} />
       </AnimationFadeUp>

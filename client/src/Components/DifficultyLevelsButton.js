@@ -1,8 +1,17 @@
+import { useCallback } from 'react';
 import { PrimaryButton } from '../Styles/Button.style';
 
-const DifficultyLevelsButton = ({ handleDifficultyButton, highlightColour, difficulty }) => {
+const DifficultyLevelsButton = ({
+  handleDifficultyButton,
+  highlightColour,
+  difficulty,
+}) => {
+  const handleClick = useCallback(() => {
+    handleDifficultyButton(difficulty);
+  }, [handleDifficultyButton, difficulty]);
+
   return (
-    <PrimaryButton highlightColour={highlightColour} onClick={() => handleDifficultyButton(difficulty)}>
+    <PrimaryButton highlightColour={highlightColour} onClick={handleClick}>
       {difficulty}
     </PrimaryButton>
   );

@@ -14,26 +14,33 @@ const Wrapper = styled.div`
   text-align: center;
 `;
 
+const themeButtons = [
+  { theme: 'Animals', color: 'DarkOrange', delay: '1s' },
+  { theme: 'Celebs', color: 'MediumSeaGreen', delay: '1.1s' },
+  { theme: 'Locations', color: 'DodgerBlue', delay: '1.2s' },
+  { theme: 'Food', color: 'tomato', delay: '1.3s' },
+];
+
 const ThemeButtonContainer = ({ handleThemeButton }) => {
   return (
     <Wrapper>
       <AnimationFadeIn animationDelay={'100ms'}>
-        <p>Welcome to <b>Mind Me</b> - a memory testing game. Match the cards in as few turns as possible!</p>
+        <p>
+          Welcome to <b>Mind Me</b> - a memory testing game. Match the cards in
+          as few turns as possible!
+        </p>
         <p>Please select a theme</p>
       </AnimationFadeIn>
 
-      <AnimationFadeUp animationDelay={'1s'}>
-        <ThemeButton theme={'Animals'} highlightColour={'DarkOrange'} handleThemeButton={handleThemeButton} />
-      </AnimationFadeUp>
-      <AnimationFadeUp animationDelay={'1.1s'}>
-        <ThemeButton theme={'Celebs'} highlightColour={'MediumSeaGreen'} handleThemeButton={handleThemeButton} />
-      </AnimationFadeUp>
-      <AnimationFadeUp animationDelay={'1.2s'}>
-        <ThemeButton theme={'Locations'} highlightColour={'DodgerBlue'} handleThemeButton={handleThemeButton} />
-      </AnimationFadeUp>
-      <AnimationFadeUp animationDelay={'1.3s'}>
-        <ThemeButton theme={'Food'} highlightColour={'tomato'} handleThemeButton={handleThemeButton} />
-      </AnimationFadeUp>
+      {themeButtons.map(({ theme, color, delay }) => (
+        <AnimationFadeUp key={theme} animationDelay={delay}>
+          <ThemeButton
+            theme={theme}
+            highlightColour={color}
+            handleThemeButton={handleThemeButton}
+          />
+        </AnimationFadeUp>
+      ))}
     </Wrapper>
   );
 };

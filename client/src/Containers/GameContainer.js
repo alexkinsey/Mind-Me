@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import styled from 'styled-components';
 import { useWindowSize } from 'react-use';
 import Confetti from 'react-confetti';
@@ -8,6 +8,7 @@ import useSound from 'use-sound';
 import CardContainer from './CardContainer';
 import EndScreen from './EndScreen';
 import BackButton from '../Components/BackButton';
+import TurnsLeft from '../Components/TurnsLeft';
 
 // Images
 import cardBackBlue from '../Images/CardBlue.jpg';
@@ -20,7 +21,6 @@ import Pop from '../Sounds/pop.mp3';
 import Correct from '../Sounds/success.mp3';
 import Incorrect from '../Sounds/incorrect.mp3';
 import Win from '../Sounds/win.mp3';
-import TurnsLeft from '../Components/TurnsLeft';
 
 // Styles
 import { AnimationFadeIn } from '../Styles/Animations';
@@ -39,12 +39,14 @@ const Model = styled.div`
     transform: translate(0%, 50%);
   }
 `;
+
 const BackButtonContainer = styled.div`
   z-index: 100;
   position: absolute;
   top: 1rem;
   left: 1rem;
 `;
+
 const TurnsLeftContainer = styled.div`
   z-index: 100;
   position: absolute;
@@ -52,116 +54,137 @@ const TurnsLeftContainer = styled.div`
   top: 0.5rem;
 `;
 
+const getCardBack = (themeName) => {
+  switch (themeName) {
+    case 'Animals':
+      return cardBackOrng;
+    case 'Food':
+      return cardBackRed;
+    case 'Locations':
+      return cardBackBlue;
+    default:
+      return cardBackGreen;
+  }
+};
+
+const getMaxTurns = (cardsLength) => {
+  if (cardsLength > 30) return 60;
+  if (cardsLength > 16) return 40;
+  if (cardsLength > 8) return 30;
+  return 0;
+};
+
 const GameContainer = ({ cardsToDisplay, themeName, handleBackButton }) => {
   const { width, height } = useWindowSize();
 
-  const [flippedCards, setFlippedCards] = useState(new Array(cardsToDisplay.length).fill(false));
-  const [chosenCard1, setChosenCard1] = useState({ id: null, label: null });
-  const [chosenCard2, setChosenCard2] = useState({ id: null, label: null });
-
+  const [flippedCards, setFlippedCards] = useState(
+    new Array(cardsToDisplay.length).fill(false)
+  );
+  const [chosenCards, setChosenCards] = useState([]);
   const [gameComplete, setGameComplete] = useState(false);
   const [turns, setTurns] = useState(0);
   const [endingScenario, setEndingScenario] = useState('');
-  let maxTurns = 0;
-  if (cardsToDisplay.length > 30) {
-    maxTurns = 60;
-  } else if (cardsToDisplay.length > 16) {
-    maxTurns = 40;
-  } else if (cardsToDisplay.length > 8) {
-    maxTurns = 30;
-  }
+
+  const maxTurns = getMaxTurns(cardsToDisplay.length);
 
   const [clickSound] = useSound(Pop);
   const [correctSound] = useSound(Correct);
   const [incorrectSound] = useSound(Incorrect);
   const [winSound] = useSound(Win);
 
-  useEffect(() => {
-    if (flippedCards.every((v) => v === true) && !gameComplete && (maxTurns === 0 || turns < maxTurns)) {
-      setTimeout(function () {
+  const checkGameCompletion = () => {
+    if (
+      flippedCards.every((v) => v) &&
+      !gameComplete &&
+      (maxTurns === 0 || turns < maxTurns)
+    ) {
+      setTimeout(() => {
         setGameComplete(true);
         setEndingScenario('win');
-        setTimeout(function () {
-          winSound();
-        }, 300);
+        winSound();
       }, 680);
-    } else if (turns >= maxTurns && !gameComplete && cardsToDisplay.length > 8) {
+    } else if (
+      turns >= maxTurns &&
+      !gameComplete &&
+      cardsToDisplay.length > 8
+    ) {
       setGameComplete(true);
       setEndingScenario('lose');
     }
-  });
+  };
 
-  useEffect(() => {
-    if (chosenCard1.id !== null && chosenCard2.id !== null) {
-      if (chosenCard1.label === chosenCard2.label) {
-        setChosenCard2({ id: null, label: null });
-        setChosenCard1({ id: null, label: null });
-
-        setTimeout(function () {
-          correctSound();
-        }, 680);
+  const checkChosenCards = () => {
+    if (chosenCards.length === 2) {
+      const [firstCard, secondCard] = chosenCards;
+      if (firstCard.label === secondCard.label) {
+        setChosenCards([]);
+        setTimeout(correctSound, 680);
       } else {
-        setTimeout(function () {
-          flippedCards[chosenCard2.id] = false;
-          flippedCards[chosenCard1.id] = false;
-
-          setFlippedCards(flippedCards);
-
-          setChosenCard2({ id: null, label: null });
-          setChosenCard1({ id: null, label: null });
-
+        setTimeout(() => {
+          setFlippedCards((prev) => {
+            const newFlippedCards = [...prev];
+            newFlippedCards[firstCard.id] = false;
+            newFlippedCards[secondCard.id] = false;
+            return newFlippedCards;
+          });
+          setChosenCards([]);
           incorrectSound();
         }, 680);
       }
     }
-  }, [chosenCard1, chosenCard2, flippedCards]);
-
-  const onCardClick = (id, label) => {
-    if (chosenCard1.id === null && chosenCard2.id === null && !flippedCards[id]) {
-      setChosenCard1({ id: id, label: label });
-      flippedCards[id] = true;
-
-      setFlippedCards(flippedCards);
-
-      clickSound();
-    } else if (chosenCard2.id === null && chosenCard1.id !== null && !flippedCards[id]) {
-      setChosenCard2({ id: id, label: label });
-      flippedCards[id] = true;
-
-      setFlippedCards(flippedCards);
-      setTurns(turns + 1);
-
-      clickSound();
-    }
   };
 
-  const onRetryClick = () => {
+  useEffect(checkGameCompletion, [
+    flippedCards,
+    gameComplete,
+    maxTurns,
+    turns,
+    winSound,
+    cardsToDisplay.length,
+  ]);
+  useEffect(checkChosenCards, [chosenCards, correctSound, incorrectSound]);
+
+  const onCardClick = useCallback(
+    (id, label) => {
+      if (chosenCards.length < 2 && !flippedCards[id]) {
+        setFlippedCards((prev) => {
+          const newFlippedCards = [...prev];
+          newFlippedCards[id] = true;
+          return newFlippedCards;
+        });
+        setChosenCards((prev) => [...prev, { id, label }]);
+        if (chosenCards.length === 1) {
+          setTurns((prev) => prev + 1);
+        }
+        clickSound();
+      }
+    },
+    [chosenCards.length, flippedCards, clickSound]
+  );
+
+  const onRetryClick = useCallback(() => {
     setFlippedCards(new Array(cardsToDisplay.length).fill(false));
     setTurns(0);
     setGameComplete(false);
     setEndingScenario('');
-  };
+    setChosenCards([]);
+  }, [cardsToDisplay.length]);
 
-  let cardBack;
-  if (themeName === 'Animals') {
-    cardBack = cardBackOrng;
-  } else if (themeName === 'Food') {
-    cardBack = cardBackRed;
-  } else if (themeName === 'Locations') {
-    cardBack = cardBackBlue;
-  } else if (themeName === 'Celebs') {
-    cardBack = cardBackGreen;
-  }
+  const cardBack = getCardBack(themeName);
 
   return (
     <div>
       <AnimationFadeIn>
         <BackButtonContainer>
-          {gameComplete ? null : <BackButton size={'small'} handleBackButton={handleBackButton} />}
+          {!gameComplete && (
+            <BackButton size={'small'} handleBackButton={handleBackButton} />
+          )}
         </BackButtonContainer>
 
         <TurnsLeftContainer>
-          {maxTurns > 0 && !gameComplete ? <TurnsLeft turns={turns} maxTurns={maxTurns} /> : null}
+          {maxTurns > 0 && !gameComplete && (
+            <TurnsLeft turns={turns} maxTurns={maxTurns} />
+          )}
         </TurnsLeftContainer>
       </AnimationFadeIn>
 
@@ -172,9 +195,16 @@ const GameContainer = ({ cardsToDisplay, themeName, handleBackButton }) => {
         onCardClick={onCardClick}
       />
 
-      {gameComplete && endingScenario === 'win' ? (
+      {gameComplete && (
         <Model>
-          <Confetti width={width} height={height} gravity={0.25} numberOfPieces={400} />
+          {endingScenario === 'win' && (
+            <Confetti
+              width={width}
+              height={height}
+              gravity={0.25}
+              numberOfPieces={400}
+            />
+          )}
           <EndScreen
             turns={turns}
             onRetryClick={onRetryClick}
@@ -182,16 +212,7 @@ const GameContainer = ({ cardsToDisplay, themeName, handleBackButton }) => {
             handleBackButton={handleBackButton}
           />
         </Model>
-      ) : gameComplete && endingScenario === 'lose' ? (
-        <Model>
-          <EndScreen
-            turns={turns}
-            onRetryClick={onRetryClick}
-            endingScenario={endingScenario}
-            handleBackButton={handleBackButton}
-          />
-        </Model>
-      ) : null}
+      )}
     </div>
   );
 };

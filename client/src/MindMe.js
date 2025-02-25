@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import arrayShuffle from 'array-shuffle';
 import styled from 'styled-components';
 
@@ -18,35 +18,39 @@ const Heading = styled.h1`
   font-size: ${(props) => (props.size === 'Game' ? '2rem' : 'null')};
 `;
 
+const DIFFICULTY_LEVELS = {
+  Easy: 4,
+  Medium: 8,
+  Hard: 12,
+};
+
 const MindMe = () => {
   const [themeName, setThemeName] = useState('');
   const [themeData, setThemeData] = useState([]);
   const [menuChoice, setMenuChoice] = useState('Theme');
   const [cardsToDisplay, setCardsToDisplay] = useState([]);
 
-  const handleThemeButton = (collection) => {
-    fetch(`https://mind-me-cc-default-rtdb.europe-west1.firebasedatabase.app/${collection.toLowerCase()}.json`)
-      .then((response) => response.json())
-      .then((data) => setThemeData(data));
+  useEffect(() => {
+    if (themeName) {
+      fetch(
+        `https://mind-me-cc-default-rtdb.europe-west1.firebasedatabase.app/${themeName.toLowerCase()}.json`
+      )
+        .then((response) => response.json())
+        .then((data) => setThemeData(data));
+    }
+  }, [themeName]);
 
+  const handleThemeButton = (collection) => {
     setThemeName(collection);
     setMenuChoice('Difficulty');
   };
 
   const handleDifficultyButton = (difficulty) => {
     let shuffledCards = arrayShuffle(themeData);
-
-    if (difficulty === 'Hard') {
-      shuffledCards = shuffledCards.slice(0, 12);
-    } else if (difficulty === 'Medium') {
-      shuffledCards = shuffledCards.slice(0, 8);
-    } else if (difficulty === 'Easy') {
-      shuffledCards = shuffledCards.slice(0, 4);
-    }
-
+    const cardsCount = DIFFICULTY_LEVELS[difficulty] || 4;
+    shuffledCards = shuffledCards.slice(0, cardsCount);
     shuffledCards = arrayShuffle(shuffledCards.concat(shuffledCards));
     setCardsToDisplay(shuffledCards);
-
     setMenuChoice('Game');
   };
 
@@ -71,13 +75,22 @@ const MindMe = () => {
         <AnimationTitle animationDelay={'500ms'}>e</AnimationTitle>
       </Heading>
 
-      {menuChoice === 'Theme' ? (
+      {menuChoice === 'Theme' && (
         <ThemeButtonContainer handleThemeButton={handleThemeButton} />
-      ) : menuChoice === 'Difficulty' ? (
-        <DifficultyLevelContainer handleDifficultyButton={handleDifficultyButton} handleBackButton={handleBackButton} />
-      ) : menuChoice === 'Game' ? (
-        <GameContainer cardsToDisplay={cardsToDisplay} themeName={themeName} handleBackButton={handleBackButton} />
-      ) : null}
+      )}
+      {menuChoice === 'Difficulty' && (
+        <DifficultyLevelContainer
+          handleDifficultyButton={handleDifficultyButton}
+          handleBackButton={handleBackButton}
+        />
+      )}
+      {menuChoice === 'Game' && (
+        <GameContainer
+          cardsToDisplay={cardsToDisplay}
+          themeName={themeName}
+          handleBackButton={handleBackButton}
+        />
+      )}
       <GlobalStyle />
     </Wrapper>
   );
